@@ -4,37 +4,55 @@
   <meta charset="UTF-8">
   <title>Cash Clash</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       background-color: #fff8d5;
       font-family: 'Arial Rounded MT Bold', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 30px 20px;
       text-align: center;
-      margin: 0;
-      padding: 0;
     }
 
     .titulo {
       font-size: 3em;
       color: #00c86f;
       font-weight: bold;
-      margin-top: 30px;
       font-style: italic;
+      margin-bottom: 30px;
+    }
+
+    .tabuleiro-wrapper {
+      overflow-x: auto;
+      width: 100%;
+      max-width: 100%;
     }
 
     .tabuleiro {
       display: flex;
+      flex-wrap: nowrap;
       justify-content: center;
       gap: 10px;
-      margin: 40px auto;
-      flex-wrap: wrap;
-      max-width: 700px;
+      padding: 10px;
+      min-width: 700px;
     }
 
     .casa {
+      flex: 0 0 auto;
       padding: 10px 20px;
       border-radius: 10px;
+      background-color: #6ea0f8;
       color: white;
       font-weight: bold;
-      background-color: #6ea0f8;
+      white-space: nowrap;
     }
 
     .casa.inicio {
@@ -51,7 +69,6 @@
       padding: 30px;
       border-radius: 20px;
       box-shadow: 5px 5px 0 #ff9494;
-      display: inline-block;
       max-width: 500px;
       margin-top: 30px;
     }
@@ -66,6 +83,7 @@
     }
 
     .botao-play {
+      display: inline-block;
       margin-top: 20px;
       padding: 10px 30px;
       background-color: #baffc9;
@@ -87,12 +105,21 @@
 
   <div class="titulo">CASH CLASH</div>
 
-  <div class="tabuleiro">
-    <div class="casa inicio">Início</div>
-    {% for i in 1|to:10 %}
-      <div class="casa">{{ i }}</div>
-    {% endfor %}
-    <div class="casa fim">Fim</div>
+  <div class="tabuleiro-wrapper">
+    <div class="tabuleiro">
+      <div class="casa inicio">Início</div>
+      <div class="casa">1</div>
+      <div class="casa">2</div>
+      <div class="casa">3</div>
+      <div class="casa">4</div>
+      <div class="casa">5</div>
+      <div class="casa">6</div>
+      <div class="casa">7</div>
+      <div class="casa">8</div>
+      <div class="casa">9</div>
+      <div class="casa">10</div>
+      <div class="casa fim">Fim</div>
+    </div>
   </div>
 
   <div class="painel">
