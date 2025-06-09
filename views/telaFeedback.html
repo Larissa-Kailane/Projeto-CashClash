@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Feedback</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #fff8d5;
+      font-family: 'Arial Rounded MT Bold', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    .titulo {
+      font-size: 3em;
+      color: #00c86f;
+      font-weight: bold;
+      font-style: italic;
+      margin-bottom: 30px;
+    }
+
+    .tabuleiro-wrapper {
+      overflow-x: auto;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .tabuleiro {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+      min-width: 700px;
+    }
+
+    .casa {
+      flex: 0 0 auto;
+      padding: 10px 20px;
+      border-radius: 10px;
+      background-color: #6ea0f8;
+      color: white;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .casa.inicio {
+      background-color: #ff7070;
+    }
+
+    .casa.fim {
+      background-color: #fdb949;
+    }
+
+    .painel {
+      background-color: #ff5d5d;
+      color: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 5px 5px 0 #ff9494;
+      max-width: 500px;
+      margin-top: 30px;
+    }
+
+    .painel h2 {
+      font-size: 1.8em;
+      margin-bottom: 10px;
+    }
+
+    .painel p {
+      font-size: 1.1em;
+    }
+
+    .botao-play {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 30px;
+      background-color: #baffc9;
+      color: black;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.2em;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .botao-play:hover {
+      background-color: #91f2ad;
+    }  </style>
+</head>
+<body>
+  <div class="titulo">CASH CLASH</div>
+  <div class="tabuleiro-wrapper">
+    <div class="tabuleiro">
+      <div class="casa inicio">Início</div>
+      {% for i in "12345678910" %}
+        {% if forloop.counter == posicao %}
+          <div class="casa ativa">{{ forloop.counter }}</div>
+        {% else %}
+          <div class="casa">{{ forloop.counter }}</div>
+        {% endif %}
+      {% endfor %}
+      <div class="casa fim">Fim</div>
+    </div>
+  </div>
+
+  <div class="painel">
+    {% if acertou %}
+      <h2>Parabéns, você acertou a resposta!</h2>
+    {% else %}
+      <h2>Você errou :(</h2>
+    {% endif %}
+    <p><strong>Entenda mais sobre os juros simples:</strong></p>
+    <div class="explicacao">
+      {{ explicacao }}
+    </div>
+    <form action="{% url 'tela_pergunta' %}" method="get">
+      <button class="botao-play">Avançar</button>
+    </form>
+  </div>
+</body>
+</html>
