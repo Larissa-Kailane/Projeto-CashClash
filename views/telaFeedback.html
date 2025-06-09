@@ -104,15 +104,21 @@
   <div class="titulo">CASH CLASH</div>
   <div class="tabuleiro-wrapper">
     <div class="tabuleiro">
+      
       <div class="casa inicio">Início</div>
-      {% for i in "12345678910" %}
-        {% if forloop.counter == posicao %}
-          <div class="casa ativa">{{ forloop.counter }}</div>
-        {% else %}
-          <div class="casa">{{ forloop.counter }}</div>
-        {% endif %}
-      {% endfor %}
+      <div class="casa">1</div>
+      <div class="casa">2</div>
+      <div class="casa">3</div>
+      <div class="casa">4</div>
+      <div class="casa">5</div>
+      <div class="casa">6</div>
+      <div class="casa">7</div>
+      <div class="casa">8</div>
+      <div class="casa">9</div>
+      <div class="casa">10</div>
       <div class="casa fim">Fim</div>
+    </div>
+  </div>
     </div>
   </div>
 
@@ -120,7 +126,7 @@
     {% if acertou %}
       <h2>Parabéns, você acertou a resposta!</h2>
     {% else %}
-      <h2>Você errou :(</h2>
+      <h2>Você errou</h2>
     {% endif %}
     <p><strong>Entenda mais sobre os juros simples:</strong></p>
     <div class="explicacao">
