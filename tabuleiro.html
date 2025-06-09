@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cash Clash</title>
+  <style>
+    body {
+      background-color: #fff8d5;
+      font-family: 'Arial Rounded MT Bold', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .titulo {
+      font-size: 3em;
+      color: #00c86f;
+      font-weight: bold;
+      margin-top: 30px;
+      font-style: italic;
+    }
+
+    .tabuleiro {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 40px auto;
+      flex-wrap: wrap;
+      max-width: 700px;
+    }
+
+    .casa {
+      padding: 10px 20px;
+      border-radius: 10px;
+      color: white;
+      font-weight: bold;
+      background-color: #6ea0f8;
+    }
+
+    .casa.inicio {
+      background-color: #ff7070;
+    }
+
+    .casa.fim {
+      background-color: #fdb949;
+    }
+
+    .painel {
+      background-color: #ff5d5d;
+      color: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 5px 5px 0 #ff9494;
+      display: inline-block;
+      max-width: 500px;
+      margin-top: 30px;
+    }
+
+    .painel h2 {
+      font-size: 1.8em;
+      margin-bottom: 10px;
+    }
+
+    .painel p {
+      font-size: 1.1em;
+    }
+
+    .botao-play {
+      margin-top: 20px;
+      padding: 10px 30px;
+      background-color: #baffc9;
+      color: black;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.2em;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .botao-play:hover {
+      background-color: #91f2ad;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="titulo">CASH CLASH</div>
+
+  <div class="tabuleiro">
+    <div class="casa inicio">Início</div>
+    {% for i in 1|to:10 %}
+      <div class="casa">{{ i }}</div>
+    {% endfor %}
+    <div class="casa fim">Fim</div>
+  </div>
+
+  <div class="painel">
+    <h2>Bem-vindo ao CachClash!</h2>
+    <p>Aqui você aprende matemática financeira de forma leve e divertida</p>
+    <p><strong>Aperte o play para começar</strong></p>
+    <a href="{% url 'iniciar_jogo' %}" class="botao-play">Play</a>
+  </div>
+
+</body>
+</html>
