@@ -53,6 +53,7 @@ venv.bak/
 .cursor-rules.json
 .cursor-history/
 .cursor-history.json
+.cursor/rules
 
 # Distribution / packaging
 .Python
