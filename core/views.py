@@ -1,51 +1,57 @@
 from django.shortcuts import render, redirect
+from game.actions import GameActions
 
 def tela_inicial(request):
-    return render(request, "core/telaInicial.html")
+    return render(request, "telaInicial.html")
 
 def iniciar_jogo(request):
-    request.session["posicao"] = 1
-    request.session["vidas"] = 3
-    return redirect("telaPerguntas")
+    GameActions.start_game()
+    return redirect("tela_pergunta")
 
 def tela_pergunta(request):
-    posicao = request.session.get("posicao", 1)
-    vidas = request.session.get("vidas", 3)
-
-    pergunta = {
-        "texto": f"Qual o valor final de R$100 a 10% ao ano por {posicao} ano(s)?",
-        "alternativas": ["R$ 110", "R$ 120", "R$ 130", "R$ 140"],
-        "correta": "R$ 110"
-    }
-
+    game_state = GameActions.get_game_state()
+    
+    if game_state.finished:
+        if game_state.position > 10:  # Vitória
+            return redirect("tela_vitoria")
+        else:  # Derrota
+            return redirect("tela_derrota")
+    
     if request.method == "POST":
         resposta = request.POST.get("resposta")
-        if resposta == pergunta["correta"]:
-            request.session["posicao"] = posicao + 1
-            request.session["acertou"] = True
-        else:
-            request.session["vidas"] = vidas - 1
-            request.session["acertou"] = False
+        is_correct, explanation = GameActions.check_answer(resposta)
+        request.session["explanation"] = explanation
+        request.session["acertou"] = is_correct
         return redirect("tela_feedback")
 
-    return render(request, "core/tela_pergunta.html", {
-        "posicao": posicao,
-        "vidas": vidas,
-        "pergunta": pergunta
+    return render(request, "telaPerguntas.html", {
+        "posicao": game_state.position,
+        "vidas": game_state.lives,
+        "pergunta": {
+            "texto": game_state.current_question.text if game_state.current_question else "",
+            "alternativas": [
+                game_state.current_question.option_a,
+                game_state.current_question.option_b,
+                game_state.current_question.option_c,
+                game_state.current_question.option_d
+            ] if game_state.current_question else []
+        }
     })
 
 def tela_feedback(request):
-    posicao = request.session.get("posicao", 1)
-    vidas = request.session.get("vidas", 3)
+    game_state = GameActions.get_game_state()
     acertou = request.session.get("acertou", False)
+    explicacao = request.session.get("explanation", "")
 
-    explicacao = (
-        "Se você investe R$ 1.000,00 a uma taxa de 5% ao ano, após um ano terá R$50,00..."
-    )
-
-    return render(request, "core/tela_feedback.html", {
-        "posicao": posicao,
-        "vidas": vidas,
+    return render(request, "telaFeedback.html", {
+        "posicao": game_state.position,
+        "vidas": game_state.lives,
         "acertou": acertou,
         "explicacao": explicacao
     })
+
+def tela_vitoria(request):
+    return render(request, "tela_vitoria.html")
+
+def tela_derrota(request):
+    return render(request, "tela_derrota.html")

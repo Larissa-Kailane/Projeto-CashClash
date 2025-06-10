@@ -1,0 +1,14 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Regra 1: Foco na Experiência de Aprendizado Lúdico, Inclusiva e de Alto Impacto Educacional
+
+O sistema “Jogo de Matemática Financeira” deve ser uma ferramenta educacional digital interativa que ensine de forma divertida, acessível e eficaz os conceitos básicos de matemática financeira a crianças e adolescentes da rede pública. Toda funcionalidade – desde a apresentação de perguntas e avanço no tabuleiro até o sistema de recompensas e feedbacks educativos – deve priorizar clareza pedagógica, simplicidade de uso e valor educativo direto para o aluno.
+
+A experiência de jogo deve estimular a curiosidade, a repetição saudável e o reforço positivo, permitindo que os estudantes aprendam ao seu ritmo, sem frustrações ou barreiras tecnológicas. A interface deve ser visualmente atrativa, colorida e adaptada à faixa etária do público-alvo, com design responsivo para funcionar bem em navegadores de computadores, tablets e smartphones.
+
+Todas as interações devem fornecer respostas imediatas e compreensíveis, tanto para acertos (com explicações educativas breves) quanto para erros (com reforço e nova chance). O sistema deve operar de forma fluida mesmo em redes instáveis, garantindo disponibilidade e desempenho mesmo em condições técnicas limitadas, típicas de ambientes escolares públicos.
+
+Os dados do progresso do aluno devem ser armazenados de forma segura, e o jogo deve estar preparado para escalar em número de usuários, perguntas e fases, sem comprometer a usabilidade, estabilidade e manutenção. A arquitetura deve sustentar essa missão educacional, mantendo a separação clara entre lógica, controle e interface, e viabilizando futuras expansões sem retrabalho estrutural.

@@ -1,0 +1,23 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Regra 5: Interface Responsiva, Inclusiva e Otimizada para Ambientes com Baixa Capacidade Técnica
+
+A interface do sistema deve ser totalmente responsiva, com design fluido que se adapte a diferentes tamanhos de tela, incluindo computadores, tablets e celulares de entrada, considerando que será utilizado em escolas públicas com diferentes níveis de acesso à tecnologia.
+
+Todos os elementos visuais devem seguir os princípios de design acessível:
+	•	Contraste adequado entre texto e fundo.
+	•	Botões grandes e bem espaçados, fáceis de clicar/tocar.
+	•	Tipografia legível, adaptável ao tamanho do texto configurado no dispositivo.
+	•	Ícones claros que reforcem as ações e mensagens.
+
+O jogo deve funcionar corretamente em navegadores modernos (Chrome, Firefox, Edge, Safari) sem exigir plugins adicionais. Toda a interface deve ser construída com HTML5, CSS3 e JavaScript padrão, priorizando compatibilidade e desempenho. Frameworks ou bibliotecas adicionais (como Bootstrap ou Tailwind) podem ser utilizados desde que não aumentem excessivamente o tempo de carregamento ou comprometam a performance.
+
+Para garantir uma boa performance:
+	•	O uso de imagens, animações e recursos visuais deve ser moderado e otimizado (compressão, lazy loading).
+	•	Scripts JS devem ser assíncronos e não bloquear o carregamento da interface.
+	•	O front-end deve minimizar as requisições ao back-end, aproveitando cache local e lógica embutida sempre que possível.
+
+Além disso, o sistema deve fornecer mensagens de erro compreensíveis, feedback visual imediato para cliques, ações e transições, e funcionar bem mesmo com conexões lentas ou intermitentes.

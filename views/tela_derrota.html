@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Cash Clash</title>
+  <title>Game Over - Cash Clash</title>
   <style>
     * {
       margin: 0;
@@ -75,14 +75,21 @@
 
     .painel h2 {
       font-size: 1.8em;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
 
     .painel p {
-      font-size: 1.1em;
+      font-size: 1.2em;
+      margin-bottom: 15px;
     }
 
-    .botao-play {
+    .vidas {
+      font-size: 1.5em;
+      margin: 20px 0;
+      color: #FF686B;
+    }
+
+    .botao-reiniciar {
       display: inline-block;
       margin-top: 20px;
       padding: 10px 30px;
@@ -96,13 +103,12 @@
       text-decoration: none;
     }
 
-    .botao-play:hover {
+    .botao-reiniciar:hover {
       background-color: #9EFFAA;
     }
   </style>
 </head>
 <body>
-
   <div class="titulo">CASH CLASH</div>
 
   <div class="tabuleiro-wrapper">
@@ -123,11 +129,11 @@
   </div>
 
   <div class="painel">
-    <h2>Bem-vindo ao CashClash!</h2>
-    <p>Aqui você aprende matemática financeira de forma leve e divertida.</p>
-    <p><strong>Aperte o play para começar:</strong></p>
-    <a href="{% url 'iniciar_jogo' %}" class="botao-play">Play</a>
+    <h2>Você perdeu todas as suas vidas!</h2>
+    <p>Errar faz parte do aprendizado.</p>
+    <p>Reinicie o jogo e continue aprendendo</p>
+    <div class="vidas">❌ 0 VIDAS</div>
+    <a href="{% url 'iniciar_jogo' %}" class="botao-reiniciar">Reiniciar</a>
   </div>
-
 </body>
-</html>
+</html> 

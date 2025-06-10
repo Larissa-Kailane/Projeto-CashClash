@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Cash Clash</title>
+  <title>Vitória - Cash Clash</title>
   <style>
     * {
       margin: 0;
@@ -64,25 +64,31 @@
     }
 
     .painel {
-      background-color: #FF686B;
+      background-color: #FEC764;
       color: white;
       padding: 30px;
       border-radius: 20px;
-      box-shadow: 5px 5px 0 rgba(255, 104, 107, 0.3);
+      box-shadow: 5px 5px 0 rgba(254, 199, 100, 0.3);
       max-width: 500px;
       margin-top: 30px;
     }
 
     .painel h2 {
       font-size: 1.8em;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
 
     .painel p {
-      font-size: 1.1em;
+      font-size: 1.2em;
+      margin-bottom: 15px;
     }
 
-    .botao-play {
+    .emblema {
+      font-size: 3em;
+      margin: 20px 0;
+    }
+
+    .botao-reiniciar {
       display: inline-block;
       margin-top: 20px;
       padding: 10px 30px;
@@ -96,13 +102,12 @@
       text-decoration: none;
     }
 
-    .botao-play:hover {
+    .botao-reiniciar:hover {
       background-color: #9EFFAA;
     }
   </style>
 </head>
 <body>
-
   <div class="titulo">CASH CLASH</div>
 
   <div class="tabuleiro-wrapper">
@@ -123,11 +128,10 @@
   </div>
 
   <div class="painel">
-    <h2>Bem-vindo ao CashClash!</h2>
-    <p>Aqui você aprende matemática financeira de forma leve e divertida.</p>
-    <p><strong>Aperte o play para começar:</strong></p>
-    <a href="{% url 'iniciar_jogo' %}" class="botao-play">Play</a>
+    <h2>Parabéns, você concluiu sua jornada de aprendizado sobre matemática financeira!</h2>
+    <p>Agora você parte da elite do CashClash e tem o emblema de campeão!</p>
+    <div class="emblema">⭐</div>
+    <a href="{% url 'iniciar_jogo' %}" class="botao-reiniciar">Jogar Novamente</a>
   </div>
-
 </body>
-</html>
+</html> 

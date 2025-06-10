@@ -1,0 +1,18 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Regra 2: Arquitetura Modular e Sustentável Baseada no Padrão MVC
+
+A implementação do sistema deve seguir estritamente a arquitetura MVC (Model-View-Controller), assegurando uma separação clara de responsabilidades entre dados, lógica de negócio, controle do fluxo de jogo e apresentação visual. Cada camada do sistema deve ser modular, testável e reutilizável, facilitando a evolução contínua do produto com o mínimo de acoplamento e retrabalho.
+
+A camada Model deve encapsular toda a lógica de negócio, incluindo regras de pontuação, validação de respostas, controle de vidas, progresso no tabuleiro e gerenciamento de recompensas (como o emblema). Essa camada deve ser independente da interface e suficientemente robusta para suportar futuras adições, como novos modos de jogo, perguntas ou mecânicas de dificuldade adaptativa.
+
+A camada View deve ser construída com foco em acessibilidade, responsividade e engajamento visual, utilizando tecnologias web compatíveis com múltiplos dispositivos e navegadores modernos. A View não deve conter lógica de negócio e deve reagir apenas aos dados e instruções do Controller.
+
+A camada Controller deve orquestrar as interações entre Model e View, mantendo o fluxo do jogo claro, previsível e fácil de manter. Essa camada deve lidar com eventos do usuário (respostas, reinício de jogo, avanço de casas), processar regras via Model e atualizar a View com o estado apropriado.
+
+A modularização do projeto deve se refletir também na estrutura de diretórios, agrupando lógicas relacionadas (ex: model/jogador.py, view/tela_pergunta.py, controller/pergunta_controller.py) e utilizando boas práticas do Django, como organização por apps, uso de templates e separação entre código de domínio e utilidades.
+
+A arquitetura deve ser pensada desde o início para facilitar testes automatizados, refatorações, manutenções independentes por parte de diferentes desenvolvedores e possíveis expansões (como multiplayer, rankings ou integração com plataformas educacionais externas), sem comprometer a estabilidade do jogo atual.
