@@ -1,0 +1,18 @@
+/* Importando a fonte Luckiest Guy do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+/* Estilos globais */
+.titulo {
+  font-family: 'Luckiest Guy', cursive !important;
+  font-style: normal !important;
+  font-size: 4em !important;
+  color: #0FF98E !important; /* Verde original do jogo */
+  text-shadow: none !important;
+  -webkit-text-stroke: none !important;
+  letter-spacing: 2px !important;
+  transform: skew(-5deg) !important;
+  background-color: transparent !important;
+  text-transform: uppercase !important;
+  padding: 20px !important;
+  margin-bottom: 30px !important;
+} 

@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Game Over - Cash Clash</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   <style>
     * {
       margin: 0;
@@ -22,15 +24,7 @@
       text-align: center;
     }
 
-    .titulo {
-      font-size: 3em;
-      color: #0FF98E;
-      font-weight: bold;
-      font-style: italic;
-      margin-bottom: 30px;
-      text-shadow: 2px 2px 0 #000;
-      -webkit-text-stroke: 1px black;
-    }
+    /* Estilos do título movidos para styles.css */
 
     .vidas-container {
       margin-bottom: 20px;
@@ -61,7 +55,7 @@
       display: flex;
       flex-wrap: nowrap;
       justify-content: center;
-      gap: 10px;
+      gap: 20px;
       padding: 10px;
       min-width: 700px;
     }
@@ -93,6 +87,7 @@
     .casa.inicio {
       background-color: #98FB98;
       color: #666;
+      margin-right: 20px;
     }
 
     .casa.inicio::before {
