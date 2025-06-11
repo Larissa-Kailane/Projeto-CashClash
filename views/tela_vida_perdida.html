@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Feedback</title>
+  <title>Vida Perdida - Cash Clash</title>
   <style>
     * {
       margin: 0;
@@ -76,7 +76,8 @@
     }
 
     .casa.inicio {
-      background-color: #FF686B;
+      background-color: #98FB98;
+      color: #666;
     }
 
     .casa.fim {
@@ -90,38 +91,46 @@
     }
 
     .painel {
-      background-color: #FF686B;
-      color: white;
-      padding: 30px;
+      background-color: #9747FF;
+      padding: 40px;
       border-radius: 20px;
-      box-shadow: 5px 5px 0 rgba(255, 104, 107, 0.3);
+      text-align: center;
       max-width: 500px;
+      width: 90%;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
       margin-top: 30px;
     }
 
     .painel h2 {
-      font-size: 1.8em;
+      font-size: 2em;
+      color: white;
       margin-bottom: 20px;
     }
 
-    .painel p {
-      font-size: 1.1em;
-      margin-bottom: 15px;
-      line-height: 1.4;
+    .mensagem {
+      color: white;
+      font-size: 1.2em;
+      margin-bottom: 30px;
     }
 
-    .explicacao {
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 15px;
-      border-radius: 10px;
-      margin: 15px 0;
-      text-align: left;
+    .vidas {
+      font-size: 1.5em;
+      color: #FFB6C1;
+      margin: 20px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
 
-    .botao-play {
+    .vida-modal {
+      color: #FFB6C1;
+      font-size: 1.2em;
+    }
+
+    .botao-tentar {
       display: inline-block;
-      margin-top: 20px;
-      padding: 10px 30px;
+      padding: 12px 40px;
       background-color: #C0FFC7;
       color: black;
       border: none;
@@ -130,18 +139,11 @@
       cursor: pointer;
       font-weight: bold;
       text-decoration: none;
+      transition: background-color 0.3s ease;
     }
 
-    .botao-play:hover {
+    .botao-tentar:hover {
       background-color: #9EFFAA;
-    }
-
-    .resultado-correto {
-      color: #C0FFC7;
-    }
-
-    .resultado-incorreto {
-      color: #FEC764;
     }
   </style>
 </head>
@@ -155,7 +157,7 @@
     <div class="tabuleiro">
       <div class="casa inicio {% if posicao == 1 %}atual{% endif %}">Início</div>
       {% for i in "123456789"|make_list %}
-        <div class="casa {% if posicao == i|add:"1" %}atual{% endif %}">{{ i }}</div>
+        <div class="casa {% if posicao == i|add:"0" %}atual{% endif %}">{{ i }}</div>
       {% endfor %}
       <div class="casa {% if posicao == 10 %}atual{% endif %}">10</div>
       <div class="casa fim {% if posicao > 10 %}atual{% endif %}">Fim</div>
@@ -163,19 +165,14 @@
   </div>
 
   <div class="painel">
-    {% if acertou %}
-      <h2 class="resultado-correto">Parabéns, você acertou!</h2>
-    {% else %}
-      <h2 class="resultado-incorreto">Ops, não foi dessa vez...</h2>
-    {% endif %}
-    
-    <div class="explicacao">
-      {{ explicacao }}
+    <h2>Resposta Incorreta!</h2>
+    <p class="mensagem">Você acaba de perder uma vida.</p>
+    <div class="vidas">
+      <span class="vida-modal">♥</span>
+      <span>{{ vidas }} VIDAS</span>
     </div>
-
-    <form action="{% url 'tela_pergunta' %}" method="get">
-      <button class="botao-play">Avançar</button>
-    </form>
+    <p class="mensagem">Responda novamente a pergunta!</p>
+    <a href="{% url 'tela_pergunta' %}" class="botao-tentar">Responder de novo</a>
   </div>
 </body>
-</html>
+</html> 

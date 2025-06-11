@@ -20,9 +20,14 @@ def tela_pergunta(request):
     if request.method == "POST":
         resposta = request.POST.get("resposta")
         is_correct, explanation = GameActions.check_answer(resposta)
-        request.session["explanation"] = explanation
-        request.session["acertou"] = is_correct
-        return redirect("tela_feedback")
+        
+        if is_correct:
+            return redirect("tela_pergunta")
+        else:
+            if game_state.lives > 0:  # Ainda tem vidas
+                return redirect("tela_vida_perdida")
+            else:  # Game over
+                return redirect("tela_derrota")
 
     return render(request, "telaPerguntas.html", {
         "posicao": game_state.position,
@@ -38,16 +43,11 @@ def tela_pergunta(request):
         }
     })
 
-def tela_feedback(request):
+def tela_vida_perdida(request):
     game_state = GameActions.get_game_state()
-    acertou = request.session.get("acertou", False)
-    explicacao = request.session.get("explanation", "")
-
-    return render(request, "telaFeedback.html", {
+    return render(request, "tela_vida_perdida.html", {
         "posicao": game_state.position,
-        "vidas": game_state.lives,
-        "acertou": acertou,
-        "explicacao": explicacao
+        "vidas": game_state.lives
     })
 
 def tela_vitoria(request):
