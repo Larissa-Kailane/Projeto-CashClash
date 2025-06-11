@@ -30,6 +30,25 @@
       margin-bottom: 30px;
     }
 
+    .vidas-container {
+      margin-bottom: 20px;
+      font-size: 1.5em;
+      background-color: rgba(255, 192, 203, 0.2);
+      padding: 8px 15px;
+      border-radius: 20px;
+      display: inline-block;
+    }
+
+    .vida {
+      color: #FFB6C1;
+      margin-right: 8px;
+    }
+
+    .vidas-texto {
+      color: #666;
+      font-weight: bold;
+    }
+
     .tabuleiro-wrapper {
       overflow-x: auto;
       width: 100%;
@@ -122,6 +141,10 @@
 </head>
 <body>
   <div class="titulo">CASH CLASH</div>
+  <div class="vidas-container">
+    <span class="vida">♥</span>
+    <span class="vidas-texto">{{ vidas }} VIDAS</span>
+  </div>
   <div class="tabuleiro-wrapper">
     <div class="tabuleiro">
       <div class="casa inicio">Início</div>
