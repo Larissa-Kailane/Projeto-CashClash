@@ -22,7 +22,10 @@ def tela_pergunta(request):
         is_correct, explanation = GameActions.check_answer(resposta)
         
         if is_correct:
-            return redirect("tela_pergunta")
+            # Armazena a explicação na sessão para usar na próxima tela
+            request.session['explicacao'] = explanation
+            request.session['titulo_explicacao'] = "os juros simples"  # Texto fixo agora
+            return redirect("tela_resposta_correta")
         else:
             if game_state.lives > 0:  # Ainda tem vidas
                 return redirect("tela_vida_perdida")
@@ -55,3 +58,12 @@ def tela_vitoria(request):
 
 def tela_derrota(request):
     return render(request, "tela_derrota.html")
+
+def tela_resposta_correta(request):
+    game_state = GameActions.get_game_state()
+    return render(request, "tela_resposta_correta.html", {
+        "posicao": game_state.position,
+        "vidas": game_state.lives,
+        "explicacao": request.session.get('explicacao', ''),
+        "titulo_explicacao": request.session.get('titulo_explicacao', 'o tema')
+    })

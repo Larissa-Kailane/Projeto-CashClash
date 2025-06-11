@@ -4,10 +4,10 @@
         "pk": 1,
         "fields": {
             "texto": "O que é um orçamento?",
-            "alternativa_a": "Uma lista de compras do supermercado",
-            "alternativa_b": "Um plano que controla ganhos e gastos de dinheiro",
-            "alternativa_c": "Uma conta no banco",
-            "alternativa_d": "Um cartão de crédito",
+            "alternativa_a": "Uma lista de compras do supermercado.",
+            "alternativa_b": "Um plano que controla ganhos e gastos.",
+            "alternativa_c": "Uma conta no banco.",
+            "alternativa_d": "Um cartão de crédito.",
             "alternativa_correta": "B",
             "explicacao": "Um orçamento é um plano financeiro que ajuda a controlar quanto dinheiro você recebe e quanto gasta, permitindo organizar melhor suas finanças.",
             "dica": "Pense em como você pode organizar seu dinheiro de forma planejada."
@@ -16,6 +16,62 @@
     {
         "model": "game.question",
         "pk": 2,
+        "fields": {
+            "texto": "O que diferencia juros simples de compostos?",
+            "alternativa_a": "Os simples rendem mais a longo prazo.",
+            "alternativa_b": "Os compostos rendem mais porque calculam juros sobre juros.",
+            "alternativa_c": "Os compostos não aplicam taxas.",
+            "alternativa_d": "Os simples atualizam o capital mensalmente.",
+            "alternativa_correta": "B",
+            "explicacao": "Juros compostos capitalizam os juros, ou seja, o valor sobre o qual se calcula aumenta a cada período.",
+            "dica": "Pense na ideia de juros sobre juros."
+        }
+    },
+    {
+        "model": "game.question",
+        "pk": 3,
+        "fields": {
+            "texto": "O que significa poupar dinheiro?",
+            "alternativa_a": "Gastar todo o dinheiro que tem.",
+            "alternativa_b": "Pedir dinheiro emprestado.",
+            "alternativa_c": "Guardar uma parte do dinheiro para usar depois.",
+            "alternativa_d": "Doar todo o dinheiro.",
+            "alternativa_correta": "C",
+            "explicacao": "Poupar significa guardar uma parte do dinheiro que você recebe, em vez de gastar tudo. Isso ajuda a ter dinheiro para emergências ou para realizar sonhos no futuro.",
+            "dica": "Pense no que você pode fazer com o dinheiro no futuro se não gastar tudo agora."
+        }
+    },
+    {
+        "model": "game.question",
+        "pk": 4,
+        "fields": {
+            "texto": "O que significa capital, na matemática financeira?",
+            "alternativa_a": "A soma dos juros ao longo do tempo.",
+            "alternativa_b": "O valor pago ao final de uma aplicação.",
+            "alternativa_c": "O valor inicial investido ou emprestado.",
+            "alternativa_d": " A taxa de crescimento mensal.",
+            "alternativa_correta": "C",
+            "explicacao": "Capital é o valor inicial de uma operação financeira.",
+            "dica": "Pense no ponto de partida, o “começo da história”."
+        }
+    },
+    {
+        "model": "game.question",
+        "pk": 5,
+        "fields": {
+            "texto": " Qual é o significado de taxa de juros?",
+            "alternativa_a": "O tempo necessário para dobrar o investimento.",
+            "alternativa_b": "O percentual aplicado sobre o capital ou montante.",
+            "alternativa_c": "O valor total final de uma aplicação.",
+            "alternativa_d": "O número de meses de aplicação.",
+            "alternativa_correta": "B",
+            "explicacao": "A taxa de juros representa quanto será aplicado (em %) sobre um valor para calcular o acréscimo.",
+            "dica": "Pense como um acréscimo sobre um valor."
+        }
+    },
+    {
+        "model": "game.question",
+        "pk": 6,
         "fields": {
             "texto": "O que significa poupar dinheiro?",
             "alternativa_a": "Gastar todo o dinheiro que tem",
@@ -29,7 +85,50 @@
     },
     {
         "model": "game.question",
-        "pk": 3,
+        "pk": 7,
+        "fields": {
+            "texto": "O que é montante em uma aplicação?",
+            "alternativa_a": "J = P × (1 + i)ⁿ",
+            "alternativa_b": "J = C × i × t",
+            "alternativa_c": "J = M - C",
+            "alternativa_d": "J = C × i / t",
+            "alternativa_correta": "B",
+            "explicacao": "Juros simples são calculados com a fórmula J = C × i × t, onde C = capital, i = taxa e t = tempo.",
+            "dica": "Pense que você precisa realizar uma multiplicação."
+        }
+    },
+    {
+        "model": "game.question",
+        "pk": 8,
+        "fields": {
+            "texto": "O que é montante em uma aplicação?",
+            "alternativa_a": "Gastar todo o dinheiro que tem",
+            "alternativa_b": "Pedir dinheiro emprestado",
+            "alternativa_c": "Guardar uma parte do dinheiro para usar depois",
+            "alternativa_d": "Doar todo o dinheiro",
+            "alternativa_correta": "C",
+            "explicacao": "Poupar significa guardar uma parte do dinheiro que você recebe, em vez de gastar tudo. Isso ajuda a ter dinheiro para emergências ou para realizar sonhos no futuro.",
+            "dica": "Pense no que você pode fazer com o dinheiro no futuro se não gastar tudo agora."
+        }
+    },
+    {
+        "model": "game.question",
+        "pk": 9,
+        "fields": {
+            "texto": "O que significa poupar dinheiro?",
+            "alternativa_a": "O valor pago em juros.",
+            "alternativa_b": "O valor final após aplicação de juros ao capital.",
+            "alternativa_c": "O valor inicial antes dos juros.",
+            "alternativa_d": "A taxa de correção monetária.",
+            "alternativa_correta": "B",
+            "explicacao": "Montante é a soma do capital + juros, ou seja, o valor total ao final da operação.",
+            "dica": "Pense em tudo o que você tem no fim."
+        }
+    },
+   
+    {
+        "model": "game.question",
+        "pk": 10,
         "fields": {
             "texto": "Por que é importante economizar dinheiro?",
             "alternativa_a": "Para nunca gastar nada",

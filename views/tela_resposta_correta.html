@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Resposta Correta - Cash Clash</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #FAF8CB;
+      font-family: 'Arial Rounded MT Bold', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    .titulo {
+      font-size: 3em;
+      color: #0FF98E;
+      font-weight: bold;
+      font-style: italic;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 0 #000;
+      -webkit-text-stroke: 1px black;
+    }
+
+    .vidas-container {
+      margin-bottom: 20px;
+      font-size: 1.5em;
+      background-color: rgba(255, 192, 203, 0.2);
+      padding: 8px 15px;
+      border-radius: 20px;
+      display: inline-block;
+    }
+
+    .vida {
+      color: #FFB6C1;
+      margin-right: 8px;
+    }
+
+    .vidas-texto {
+      color: #666;
+      font-weight: bold;
+    }
+
+    .tabuleiro-wrapper {
+      overflow-x: auto;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .tabuleiro {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+      min-width: 700px;
+    }
+
+    .casa {
+      flex: 0 0 auto;
+      padding: 10px 20px;
+      border-radius: 10px;
+      background-color: #A4C4F3;
+      color: white;
+      font-weight: bold;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .casa::before {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      right: -4px;
+      bottom: -4px;
+      background-color: rgba(164, 196, 243, 0.5);
+      border-radius: 10px;
+      z-index: -1;
+    }
+
+    .casa.inicio {
+      background-color: #98FB98;
+      color: #666;
+    }
+
+    .casa.inicio::before {
+      background-color: rgba(152, 251, 152, 0.5);
+    }
+
+    .casa.fim {
+      background-color: #FEC764;
+    }
+
+    .casa.fim::before {
+      background-color: rgba(254, 199, 100, 0.5);
+    }
+
+    .casa.atual {
+      background-color: #6199EB;
+      transform: scale(1.1);
+      box-shadow: 0 4px 8px rgba(97, 153, 235, 0.3);
+    }
+
+    .casa.atual::before {
+      background-color: rgba(97, 153, 235, 0.5);
+      transform: scale(1.1);
+    }
+
+    .painel {
+      background-color: #40E0D0;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      max-width: 600px;
+      width: 90%;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      margin: 30px auto;
+      position: relative;
+    }
+
+    .painel::before {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      right: -4px;
+      bottom: -4px;
+      background-color: rgba(64, 224, 208, 0.5);
+      border-radius: 20px;
+      z-index: -1;
+    }
+
+    .painel h2 {
+      font-size: 2em;
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .explicacao {
+      background-color: #E6E6FA;
+      padding: 20px;
+      border-radius: 15px;
+      margin: 20px 0;
+      text-align: left;
+    }
+
+    .explicacao h3 {
+      color: #333;
+      margin-bottom: 10px;
+      font-size: 1.3em;
+    }
+
+    .explicacao p {
+      color: #444;
+      font-size: 1.1em;
+      line-height: 1.5;
+    }
+
+    .botao-avancar {
+      display: inline-block;
+      padding: 12px 40px;
+      background-color: #C0FFC7;
+      color: black;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.2em;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      margin-top: 20px;
+    }
+
+    .botao-avancar:hover {
+      background-color: #9EFFAA;
+    }
+
+    .instrucao {
+      color: white;
+      font-size: 1.2em;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="titulo">CASH CLASH</div>
+  <div class="vidas-container">
+    <span class="vida">♥</span>
+    <span class="vidas-texto">{{ vidas }} VIDAS</span>
+  </div>
+  <div class="tabuleiro-wrapper">
+    <div class="tabuleiro">
+      <div class="casa inicio">Início</div>
+      {% for i in "123456789"|make_list %}
+        <div class="casa {% if posicao == i|add:"0" %}atual{% endif %}">{{ i }}</div>
+      {% endfor %}
+      <div class="casa {% if posicao == 10 %}atual{% endif %}">10</div>
+      <div class="casa fim">Fim</div>
+    </div>
+  </div>
+
+  <div class="painel">
+    <h2>Parabéns, você acertou a resposta!</h2>
+    <div class="explicacao">
+      <h3>Entenda mais sobre:</h3>
+      <p>{{ explicacao }}</p>
+    </div>
+    <p class="instrucao">Avance para a próxima casa</p>
+    <a href="{% url 'tela_pergunta' %}" class="botao-avancar">Avançar</a>
+  </div>
+</body>
+</html> 
