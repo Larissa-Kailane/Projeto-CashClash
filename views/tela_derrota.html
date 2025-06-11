@@ -11,20 +11,86 @@
     }
 
     body {
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: #FAF8CB;
       font-family: 'Arial Rounded MT Bold', sans-serif;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       min-height: 100vh;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      padding: 30px 20px;
+      text-align: center;
     }
 
-    .modal {
+    .titulo {
+      font-size: 3em;
+      color: #0FF98E;
+      font-weight: bold;
+      font-style: italic;
+      margin-bottom: 30px;
+    }
+
+    .vidas-container {
+      margin-bottom: 20px;
+      font-size: 1.5em;
+      background-color: rgba(255, 192, 203, 0.2);
+      padding: 8px 15px;
+      border-radius: 20px;
+      display: inline-block;
+    }
+
+    .vida {
+      color: #FFB6C1;
+      margin-right: 8px;
+    }
+
+    .vidas-texto {
+      color: #666;
+      font-weight: bold;
+    }
+
+    .tabuleiro-wrapper {
+      overflow-x: auto;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .tabuleiro {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+      min-width: 700px;
+    }
+
+    .casa {
+      flex: 0 0 auto;
+      padding: 10px 20px;
+      border-radius: 10px;
+      background-color: #A4C4F3;
+      color: white;
+      font-weight: bold;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+    }
+
+    .casa.inicio {
+      background-color: #98FB98;
+      color: #666;
+    }
+
+    .casa.fim {
+      background-color: #FEC764;
+    }
+
+    .casa.atual {
+      background-color: #6199EB;
+      transform: scale(1.1);
+      box-shadow: 0 4px 8px rgba(97, 153, 235, 0.3);
+    }
+
+    .painel {
       background-color: #9747FF;
       padding: 40px;
       border-radius: 20px;
@@ -32,24 +98,34 @@
       max-width: 500px;
       width: 90%;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      margin-top: 30px;
     }
 
-    .modal h2 {
+    .painel h2 {
       font-size: 2em;
       color: white;
       margin-bottom: 20px;
-    }
-
-    .vidas {
-      font-size: 1.5em;
-      color: #FFB6C1;
-      margin: 20px 0;
     }
 
     .mensagem {
       color: white;
       font-size: 1.2em;
       margin-bottom: 30px;
+    }
+
+    .vidas {
+      font-size: 1.5em;
+      color: #FFB6C1;
+      margin: 20px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .vida-modal {
+      color: #FFB6C1;
+      font-size: 1.2em;
     }
 
     .botao-reiniciar {
@@ -72,11 +148,30 @@
   </style>
 </head>
 <body>
-  <div class="modal">
+  <div class="titulo">CASH CLASH</div>
+  <div class="vidas-container">
+    <span class="vida">❌</span>
+    <span class="vidas-texto">0 VIDAS</span>
+  </div>
+  <div class="tabuleiro-wrapper">
+    <div class="tabuleiro">
+      <div class="casa inicio">Início</div>
+      {% for i in "123456789"|make_list %}
+        <div class="casa {% if posicao == i|add:"0" %}atual{% endif %}">{{ i }}</div>
+      {% endfor %}
+      <div class="casa {% if posicao == 10 %}atual{% endif %}">10</div>
+      <div class="casa fim {% if posicao > 10 %}atual{% endif %}">Fim</div>
+    </div>
+  </div>
+
+  <div class="painel">
     <h2>Você perdeu todas as suas vidas!</h2>
     <p class="mensagem">Errar faz parte do aprendizado.</p>
     <p class="mensagem">Reinicie o jogo e continue aprendendo</p>
-    <div class="vidas">❌ 0 VIDAS</div>
+    <div class="vidas">
+      <span class="vida-modal">❌</span>
+      <span>0 VIDAS</span>
+    </div>
     <a href="{% url 'iniciar_jogo' %}" class="botao-reiniciar">Reiniciar</a>
   </div>
 </body>
