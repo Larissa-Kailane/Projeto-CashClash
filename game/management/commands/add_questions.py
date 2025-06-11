@@ -13,7 +13,8 @@ class Command(BaseCommand):
                 'option_c': 'R$ 150,00',
                 'option_d': 'R$ 200,00',
                 'correct_option': 'A',
-                'explanation': 'Com juros simples de 5% ao ano, o valor dos juros é calculado multiplicando o capital (R$1.000,00) pela taxa (5% ou 0,05), resultando em R$50,00.'
+                'explanation': 'Com juros simples de 5% ao ano, o valor dos juros é calculado multiplicando o capital (R$1.000,00) pela taxa (5% ou 0,05), resultando em R$50,00.',
+                'stage': 1
             },
             {
                 'text': 'O que são juros compostos?',
@@ -22,7 +23,8 @@ class Command(BaseCommand):
                 'option_c': 'Juros que são pagos mensalmente',
                 'option_d': 'Juros que são pagos apenas no final do investimento',
                 'correct_option': 'B',
-                'explanation': 'Juros compostos são aqueles que incidem não só sobre o capital inicial, mas também sobre os juros acumulados nos períodos anteriores, gerando um efeito de "bola de neve".'
+                'explanation': 'Juros compostos são aqueles que incidem não só sobre o capital inicial, mas também sobre os juros acumulados nos períodos anteriores, gerando um efeito de "bola de neve".',
+                'stage': 2
             },
             {
                 'text': 'Qual é a melhor forma de economizar dinheiro?',
@@ -31,7 +33,8 @@ class Command(BaseCommand):
                 'option_c': 'Separar uma parte do dinheiro assim que receber',
                 'option_d': 'Pedir dinheiro emprestado',
                 'correct_option': 'C',
-                'explanation': 'A melhor estratégia é separar uma parte do dinheiro assim que receber (poupar primeiro). Isso garante que você realmente economize, em vez de correr o risco de gastar tudo antes.'
+                'explanation': 'A melhor estratégia é separar uma parte do dinheiro assim que receber (poupar primeiro). Isso garante que você realmente economize, em vez de correr o risco de gastar tudo antes.',
+                'stage': 3
             },
             {
                 'text': 'O que é inflação?',
@@ -40,7 +43,8 @@ class Command(BaseCommand):
                 'option_c': 'Quando os preços dos produtos aumentam',
                 'option_d': 'Quando o salário aumenta',
                 'correct_option': 'C',
-                'explanation': 'Inflação é o aumento geral dos preços dos produtos e serviços, fazendo com que o dinheiro perca seu poder de compra ao longo do tempo.'
+                'explanation': 'Inflação é o aumento geral dos preços dos produtos e serviços, fazendo com que o dinheiro perca seu poder de compra ao longo do tempo.',
+                'stage': 4
             },
             {
                 'text': 'Por que é importante ter uma reserva de emergência?',
@@ -49,7 +53,8 @@ class Command(BaseCommand):
                 'option_c': 'Para estar preparado para imprevistos',
                 'option_d': 'Para emprestar a amigos',
                 'correct_option': 'C',
-                'explanation': 'Uma reserva de emergência é importante para nos proteger de imprevistos financeiros, como problemas de saúde, desemprego ou despesas inesperadas, evitando que precisemos recorrer a empréstimos.'
+                'explanation': 'Uma reserva de emergência é importante para nos proteger de imprevistos financeiros, como problemas de saúde, desemprego ou despesas inesperadas, evitando que precisemos recorrer a empréstimos.',
+                'stage': 5
             },
             {
                 'text': 'O que é um orçamento familiar?',
@@ -58,7 +63,8 @@ class Command(BaseCommand):
                 'option_c': 'O dinheiro guardado no banco',
                 'option_d': 'As dívidas que precisam ser pagas',
                 'correct_option': 'B',
-                'explanation': 'Um orçamento familiar é um planejamento financeiro que registra e controla todas as entradas (receitas) e saídas (despesas) de dinheiro da família, ajudando a organizar as finanças.'
+                'explanation': 'Um orçamento familiar é um planejamento financeiro que registra e controla todas as entradas (receitas) e saídas (despesas) de dinheiro da família, ajudando a organizar as finanças.',
+                'stage': 6
             },
             {
                 'text': 'Qual é a diferença entre necessidade e desejo?',
@@ -67,7 +73,8 @@ class Command(BaseCommand):
                 'option_c': 'Necessidade é essencial para viver, desejo é algo que queremos mas podemos viver sem',
                 'option_d': 'Não há diferença, são a mesma coisa',
                 'correct_option': 'C',
-                'explanation': 'Necessidades são itens essenciais para nossa sobrevivência (como comida, moradia), enquanto desejos são coisas que gostaríamos de ter mas não são fundamentais. Entender essa diferença é crucial para boas decisões financeiras.'
+                'explanation': 'Necessidades são itens essenciais para nossa sobrevivência (como comida, moradia), enquanto desejos são coisas que gostaríamos de ter mas não são fundamentais. Entender essa diferença é crucial para boas decisões financeiras.',
+                'stage': 7
             },
             {
                 'text': 'O que significa ser um consumidor consciente?',
@@ -76,7 +83,8 @@ class Command(BaseCommand):
                 'option_c': 'Pesquisar preços e comprar apenas o necessário',
                 'option_d': 'Comprar apenas produtos caros',
                 'correct_option': 'C',
-                'explanation': 'Um consumidor consciente pesquisa preços, avalia a real necessidade da compra, compara produtos e marcas, e faz escolhas que respeitam seu orçamento e o meio ambiente.'
+                'explanation': 'Um consumidor consciente pesquisa preços, avalia a real necessidade da compra, compara produtos e marcas, e faz escolhas que respeitam seu orçamento e o meio ambiente.',
+                'stage': 8
             },
             {
                 'text': 'Qual é a melhor atitude ao receber mesada ou dinheiro de presente?',
@@ -85,7 +93,8 @@ class Command(BaseCommand):
                 'option_c': 'Emprestar todo o dinheiro para os amigos',
                 'option_d': 'Esconder o dinheiro embaixo do colchão',
                 'correct_option': 'B',
-                'explanation': 'O ideal é desenvolver o hábito de poupar parte do dinheiro recebido e usar o restante de forma planejada, equilibrando economia e gastos responsáveis.'
+                'explanation': 'O ideal é desenvolver o hábito de poupar parte do dinheiro recebido e usar o restante de forma planejada, equilibrando economia e gastos responsáveis.',
+                'stage': 9
             },
             {
                 'text': 'Por que é importante comparar preços antes de comprar?',
@@ -94,7 +103,8 @@ class Command(BaseCommand):
                 'option_c': 'Para encontrar o melhor custo-benefício',
                 'option_d': 'Para demorar mais tempo comprando',
                 'correct_option': 'C',
-                'explanation': 'Comparar preços nos ajuda a encontrar o melhor custo-benefício, economizar dinheiro e fazer escolhas mais inteligentes de consumo.'
+                'explanation': 'Comparar preços nos ajuda a encontrar o melhor custo-benefício, economizar dinheiro e fazer escolhas mais inteligentes de consumo.',
+                'stage': 10
             },
             {
                 'text': 'O que é um investimento?',
@@ -103,7 +113,8 @@ class Command(BaseCommand):
                 'option_c': 'Aplicar dinheiro esperando receber mais no futuro',
                 'option_d': 'Emprestar dinheiro para amigos',
                 'correct_option': 'C',
-                'explanation': 'Investimento é quando aplicamos dinheiro em algo (como poupança, ações, títulos) com a expectativa de receber um retorno maior no futuro, fazendo nosso dinheiro crescer.'
+                'explanation': 'Investimento é quando aplicamos dinheiro em algo (como poupança, ações, títulos) com a expectativa de receber um retorno maior no futuro, fazendo nosso dinheiro crescer.',
+                'stage': 11
             },
             {
                 'text': 'Como podemos economizar energia em casa?',
@@ -112,7 +123,8 @@ class Command(BaseCommand):
                 'option_c': 'Apagando as luzes ao sair e usando aparelhos eficientes',
                 'option_d': 'Nunca usando aparelhos elétricos',
                 'correct_option': 'C',
-                'explanation': 'Economizar energia inclui hábitos como apagar luzes em ambientes vazios, usar aparelhos eficientes e evitar desperdícios. Isso ajuda tanto o meio ambiente quanto o orçamento familiar.'
+                'explanation': 'Economizar energia inclui hábitos como apagar luzes em ambientes vazios, usar aparelhos eficientes e evitar desperdícios. Isso ajuda tanto o meio ambiente quanto o orçamento familiar.',
+                'stage': 12
             },
             {
                 'text': 'O que significa ser sustentável financeiramente?',
@@ -121,7 +133,8 @@ class Command(BaseCommand):
                 'option_c': 'Manter equilíbrio entre ganhos, gastos e economia',
                 'option_d': 'Pedir dinheiro emprestado sempre',
                 'correct_option': 'C',
-                'explanation': 'Ser sustentável financeiramente significa manter um equilíbrio saudável entre o que se ganha, o que se gasta e o que se guarda, garantindo estabilidade financeira a longo prazo.'
+                'explanation': 'Ser sustentável financeiramente significa manter um equilíbrio saudável entre o que se ganha, o que se gasta e o que se guarda, garantindo estabilidade financeira a longo prazo.',
+                'stage': 13
             },
             {
                 'text': 'Por que é importante ter objetivos financeiros?',
@@ -130,7 +143,8 @@ class Command(BaseCommand):
                 'option_c': 'Para planejar e realizar sonhos de forma organizada',
                 'option_d': 'Para ficar mais rico que todos',
                 'correct_option': 'C',
-                'explanation': 'Objetivos financeiros nos ajudam a planejar nosso futuro, organizar nossas economias e realizar nossos sonhos de forma responsável e planejada.'
+                'explanation': 'Objetivos financeiros nos ajudam a planejar nosso futuro, organizar nossas economias e realizar nossos sonhos de forma responsável e planejada.',
+                'stage': 14
             },
             {
                 'text': 'Como o uso do cartão de crédito afeta nosso orçamento?',
@@ -139,20 +153,22 @@ class Command(BaseCommand):
                 'option_c': 'Pode gerar dívidas se não for usado com responsabilidade',
                 'option_d': 'Só deve ser usado em emergências',
                 'correct_option': 'C',
-                'explanation': 'O cartão de crédito é uma forma de pagamento que pode gerar dívidas se não for usado com planejamento e responsabilidade, pois o dinheiro gasto precisa ser pago posteriormente, geralmente com juros.'
+                'explanation': 'O cartão de crédito é uma forma de pagamento que pode gerar dívidas se não for usado com planejamento e responsabilidade, pois o dinheiro gasto precisa ser pago posteriormente, geralmente com juros.',
+                'stage': 15
             }
         ]
 
         for question_data in questions:
             Question.objects.get_or_create(
-                text=question_data['text'],
+                texto=question_data['text'],
                 defaults={
-                    'option_a': question_data['option_a'],
-                    'option_b': question_data['option_b'],
-                    'option_c': question_data['option_c'],
-                    'option_d': question_data['option_d'],
-                    'correct_option': question_data['correct_option'],
-                    'explanation': question_data['explanation']
+                    'alternativa_a': question_data['option_a'],
+                    'alternativa_b': question_data['option_b'],
+                    'alternativa_c': question_data['option_c'],
+                    'alternativa_d': question_data['option_d'],
+                    'alternativa_correta': question_data['correct_option'],
+                    'explicacao': question_data['explanation'],
+                    'stage': question_data['stage']
                 }
             )
 

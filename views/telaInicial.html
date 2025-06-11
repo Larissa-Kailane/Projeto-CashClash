@@ -115,9 +115,10 @@
   <div class="tabuleiro-wrapper">
     <div class="tabuleiro">
       <div class="casa inicio atual">Início</div>
-      {% for i in "12345678910"|make_list %}
+      {% for i in "123456789"|make_list %}
         <div class="casa">{{ i }}</div>
       {% endfor %}
+      <div class="casa">10</div>
       <div class="casa fim">Fim</div>
     </div>
   </div>

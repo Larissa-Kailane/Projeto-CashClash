@@ -57,7 +57,7 @@
     }
 
     .casa.inicio {
-      background-color: #FF686B;
+      background-color: #98FB98;
     }
 
     .casa.fim {
@@ -124,11 +124,12 @@
   <div class="titulo">CASH CLASH</div>
   <div class="tabuleiro-wrapper">
     <div class="tabuleiro">
-      <div class="casa inicio {% if posicao == 1 %}atual{% endif %}">Início</div>
-      {% for i in "12345678910"|make_list %}
-        <div class="casa {% if posicao == i|add:"1" %}atual{% endif %}">{{ i }}</div>
+      <div class="casa inicio">Início</div>
+      {% for i in "123456789"|make_list %}
+        <div class="casa {% if posicao == i|add:"0" %}atual{% endif %}">{{ i }}</div>
       {% endfor %}
-      <div class="casa fim {% if posicao > 10 %}atual{% endif %}">Fim</div>
+      <div class="casa {% if posicao == 10 %}atual{% endif %}">10</div>
+      <div class="casa fim">Fim</div>
     </div>
   </div>
 

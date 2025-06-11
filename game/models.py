@@ -3,16 +3,21 @@ from django.db import models
 # Create your models here.
 
 class Question(models.Model):
-    text = models.CharField(max_length=255)
-    option_a = models.CharField(max_length=100)
-    option_b = models.CharField(max_length=100)
-    option_c = models.CharField(max_length=100)
-    option_d = models.CharField(max_length=100)
-    correct_option = models.CharField(max_length=1, choices=[('A', 'A'), ('B', 'B'), ('C', 'C'), ('D', 'D')])
-    explanation = models.TextField()
+    texto = models.CharField(max_length=500)
+    alternativa_a = models.CharField(max_length=200)
+    alternativa_b = models.CharField(max_length=200)
+    alternativa_c = models.CharField(max_length=200)
+    alternativa_d = models.CharField(max_length=200)
+    alternativa_correta = models.CharField(max_length=1, choices=[('A', 'A'), ('B', 'B'), ('C', 'C'), ('D', 'D')])
+    explicacao = models.TextField()  # Explicação para quando acertar
+    dica = models.TextField(default="Pense bem sobre o conceito de educação financeira envolvido.")  # Dica para quando errar
+    stage = models.IntegerField(default=1)  # Etapa em que a pergunta aparece (1 a 10)
+
+    class Meta:
+        ordering = ['stage']  # Ordena as perguntas por etapa
 
     def __str__(self):
-        return self.text
+        return f"Etapa {self.stage}: {self.texto[:50]}"
 
 class GameState(models.Model):
     position = models.IntegerField(default=1)

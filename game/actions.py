@@ -4,36 +4,61 @@ import random
 
 class GameActions:
     @staticmethod
-    def start_game():
-        """Inicia um novo jogo, criando ou resetando o estado."""
-        game_state, created = GameState.objects.get_or_create(pk=1)
+    def get_question_for_stage(stage):
+        """
+        Retorna a pergunta específica para a etapa atual.
+        """
+        try:
+            # Pega a primeira pergunta encontrada para a etapa
+            return Question.objects.filter(stage=stage).first()
+        except Question.DoesNotExist:
+            return None
+
+    @staticmethod
+    def create_game_state():
+        """
+        Cria um novo estado de jogo com valores iniciais.
+        """
+        game_state = GameState()
         game_state.position = 1
         game_state.lives = 3
-        game_state.finished = False
-        game_state.save()
-        # Limpa as perguntas respondidas
-        game_state.answered_questions.clear()
-        # Seleciona primeira pergunta
-        game_state.current_question = GameActions.get_random_question()
+        game_state.current_question = GameActions.get_question_for_stage(1)
         game_state.save()
         return game_state
 
     @staticmethod
-    def get_random_question():
-        """Seleciona uma pergunta aleatória que ainda não foi respondida."""
-        game_state = get_object_or_404(GameState, pk=1)
+    def start_game():
+        """
+        Inicia um novo jogo.
+        """
+        # Limpa o estado anterior do jogo
+        GameState.objects.all().delete()
         
-        # Pega todas as perguntas que ainda não foram respondidas
-        available_questions = Question.objects.exclude(
-            id__in=game_state.answered_questions.values_list('id', flat=True)
-        )
+        # Cria um novo estado de jogo
+        game_state = GameActions.create_game_state()
+        game_state.finished = False
+        game_state.save()
+        return game_state
+
+    @staticmethod
+    def verificar_resposta(resposta, pergunta):
+        """
+        Verifica se a resposta dada está correta para a pergunta.
+        Retorna True se correta, False se incorreta.
+        """
+        # Mapeia a resposta completa para a letra correspondente
+        mapeamento_respostas = {
+            pergunta.alternativa_a: 'A',
+            pergunta.alternativa_b: 'B',
+            pergunta.alternativa_c: 'C',
+            pergunta.alternativa_d: 'D'
+        }
         
-        if not available_questions.exists():
-            # Se todas as perguntas já foram usadas, retorna None
-            # O jogo deve tratar esse caso como uma vitória
-            return None
-            
-        return random.choice(available_questions)
+        # Obtém a letra correspondente à resposta dada
+        letra_resposta = mapeamento_respostas.get(resposta)
+        
+        # Compara com a resposta correta
+        return letra_resposta == pergunta.alternativa_correta
 
     @staticmethod
     def check_answer(answer):
@@ -45,31 +70,28 @@ class GameActions:
 
         # Mapeia a resposta do usuário para a letra correspondente
         answer_map = {
-            game_state.current_question.option_a: 'A',
-            game_state.current_question.option_b: 'B',
-            game_state.current_question.option_c: 'C',
-            game_state.current_question.option_d: 'D'
+            game_state.current_question.alternativa_a: 'A',
+            game_state.current_question.alternativa_b: 'B',
+            game_state.current_question.alternativa_c: 'C',
+            game_state.current_question.alternativa_d: 'D'
         }
 
         user_answer = answer_map.get(answer, '')
-        is_correct = user_answer == game_state.current_question.correct_option
+        is_correct = user_answer == game_state.current_question.alternativa_correta
         
-        # Guarda a explicação da pergunta atual antes de qualquer atualização
-        current_explanation = game_state.current_question.explanation if is_correct else f"Resposta incorreta. A resposta correta era: {getattr(game_state.current_question, f'option_{game_state.current_question.correct_option.lower()}')}"
+        # Guarda a explicação da pergunta atual
+        current_explanation = game_state.current_question.explicacao if is_correct else f"Resposta incorreta. A resposta correta era: {getattr(game_state.current_question, f'alternativa_{game_state.current_question.alternativa_correta.lower()}')}"
         
         if is_correct:
-            # Adiciona a pergunta atual à lista de respondidas
-            game_state.answered_questions.add(game_state.current_question)
-            
+            # Avança uma posição no tabuleiro
             game_state.position += 1
-            if game_state.position > 10:  # Vitória
+            
+            # Verifica se chegou ao fim (após a casa 10)
+            if game_state.position > 10:
                 game_state.finished = True
             else:
-                game_state.current_question = GameActions.get_random_question()
-                # Se não houver mais perguntas disponíveis, considera como vitória
-                if game_state.current_question is None:
-                    game_state.finished = True
-                    game_state.position = 11  # Força posição de vitória
+                # Busca a pergunta da próxima etapa
+                game_state.current_question = GameActions.get_question_for_stage(game_state.position)
         else:
             game_state.lives -= 1
             if game_state.lives <= 0:  # Derrota
@@ -83,6 +105,6 @@ class GameActions:
         """Retorna o estado atual do jogo."""
         game_state, created = GameState.objects.get_or_create(pk=1)
         if created:
-            game_state.current_question = GameActions.get_random_question()
+            game_state.current_question = GameActions.get_question_for_stage(1)
             game_state.save()
         return game_state 

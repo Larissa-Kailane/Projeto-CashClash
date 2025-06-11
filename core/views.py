@@ -28,12 +28,12 @@ def tela_pergunta(request):
         "posicao": game_state.position,
         "vidas": game_state.lives,
         "pergunta": {
-            "texto": game_state.current_question.text if game_state.current_question else "",
+            "texto": game_state.current_question.texto if game_state.current_question else "",
             "alternativas": [
-                game_state.current_question.option_a,
-                game_state.current_question.option_b,
-                game_state.current_question.option_c,
-                game_state.current_question.option_d
+                game_state.current_question.alternativa_a,
+                game_state.current_question.alternativa_b,
+                game_state.current_question.alternativa_c,
+                game_state.current_question.alternativa_d
             ] if game_state.current_question else []
         }
     })

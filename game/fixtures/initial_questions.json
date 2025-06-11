@@ -1,0 +1,44 @@
+[
+    {
+        "model": "game.question",
+        "pk": 1,
+        "fields": {
+            "texto": "O que é um orçamento?",
+            "alternativa_a": "Uma lista de compras do supermercado",
+            "alternativa_b": "Um plano que controla ganhos e gastos de dinheiro",
+            "alternativa_c": "Uma conta no banco",
+            "alternativa_d": "Um cartão de crédito",
+            "alternativa_correta": "B",
+            "explicacao": "Um orçamento é um plano financeiro que ajuda a controlar quanto dinheiro você recebe e quanto gasta, permitindo organizar melhor suas finanças.",
+            "dica": "Pense em como você pode organizar seu dinheiro de forma planejada."
+        }
+    },
+    {
+        "model": "game.question",
+        "pk": 2,
+        "fields": {
+            "texto": "O que significa poupar dinheiro?",
+            "alternativa_a": "Gastar todo o dinheiro que tem",
+            "alternativa_b": "Pedir dinheiro emprestado",
+            "alternativa_c": "Guardar uma parte do dinheiro para usar depois",
+            "alternativa_d": "Doar todo o dinheiro",
+            "alternativa_correta": "C",
+            "explicacao": "Poupar significa guardar uma parte do dinheiro que você recebe, em vez de gastar tudo. Isso ajuda a ter dinheiro para emergências ou para realizar sonhos no futuro.",
+            "dica": "Pense no que você pode fazer com o dinheiro no futuro se não gastar tudo agora."
+        }
+    },
+    {
+        "model": "game.question",
+        "pk": 3,
+        "fields": {
+            "texto": "Por que é importante economizar dinheiro?",
+            "alternativa_a": "Para nunca gastar nada",
+            "alternativa_b": "Para ficar rico em um dia",
+            "alternativa_c": "Para comprar tudo que vê pela frente",
+            "alternativa_d": "Para ter segurança financeira e realizar objetivos",
+            "alternativa_correta": "D",
+            "explicacao": "Economizar é importante para ter segurança financeira em emergências e poder realizar seus objetivos futuros, como comprar algo especial ou investir em educação.",
+            "dica": "Pense em algo que você gostaria muito de ter ou fazer no futuro."
+        }
+    }
+] 
