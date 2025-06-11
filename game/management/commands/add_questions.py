@@ -50,6 +50,96 @@ class Command(BaseCommand):
                 'option_d': 'Para emprestar a amigos',
                 'correct_option': 'C',
                 'explanation': 'Uma reserva de emergência é importante para nos proteger de imprevistos financeiros, como problemas de saúde, desemprego ou despesas inesperadas, evitando que precisemos recorrer a empréstimos.'
+            },
+            {
+                'text': 'O que é um orçamento familiar?',
+                'option_a': 'Uma lista de compras do supermercado',
+                'option_b': 'Um controle de todas as receitas e despesas da família',
+                'option_c': 'O dinheiro guardado no banco',
+                'option_d': 'As dívidas que precisam ser pagas',
+                'correct_option': 'B',
+                'explanation': 'Um orçamento familiar é um planejamento financeiro que registra e controla todas as entradas (receitas) e saídas (despesas) de dinheiro da família, ajudando a organizar as finanças.'
+            },
+            {
+                'text': 'Qual é a diferença entre necessidade e desejo?',
+                'option_a': 'Necessidade é mais barato, desejo é mais caro',
+                'option_b': 'Necessidade é para adultos, desejo é para crianças',
+                'option_c': 'Necessidade é essencial para viver, desejo é algo que queremos mas podemos viver sem',
+                'option_d': 'Não há diferença, são a mesma coisa',
+                'correct_option': 'C',
+                'explanation': 'Necessidades são itens essenciais para nossa sobrevivência (como comida, moradia), enquanto desejos são coisas que gostaríamos de ter mas não são fundamentais. Entender essa diferença é crucial para boas decisões financeiras.'
+            },
+            {
+                'text': 'O que significa ser um consumidor consciente?',
+                'option_a': 'Comprar tudo que está em promoção',
+                'option_b': 'Gastar todo o dinheiro que tem',
+                'option_c': 'Pesquisar preços e comprar apenas o necessário',
+                'option_d': 'Comprar apenas produtos caros',
+                'correct_option': 'C',
+                'explanation': 'Um consumidor consciente pesquisa preços, avalia a real necessidade da compra, compara produtos e marcas, e faz escolhas que respeitam seu orçamento e o meio ambiente.'
+            },
+            {
+                'text': 'Qual é a melhor atitude ao receber mesada ou dinheiro de presente?',
+                'option_a': 'Gastar tudo imediatamente em doces',
+                'option_b': 'Guardar uma parte e usar outra parte para gastos planejados',
+                'option_c': 'Emprestar todo o dinheiro para os amigos',
+                'option_d': 'Esconder o dinheiro embaixo do colchão',
+                'correct_option': 'B',
+                'explanation': 'O ideal é desenvolver o hábito de poupar parte do dinheiro recebido e usar o restante de forma planejada, equilibrando economia e gastos responsáveis.'
+            },
+            {
+                'text': 'Por que é importante comparar preços antes de comprar?',
+                'option_a': 'Não é importante, devemos comprar no primeiro lugar',
+                'option_b': 'Para gastar mais dinheiro',
+                'option_c': 'Para encontrar o melhor custo-benefício',
+                'option_d': 'Para demorar mais tempo comprando',
+                'correct_option': 'C',
+                'explanation': 'Comparar preços nos ajuda a encontrar o melhor custo-benefício, economizar dinheiro e fazer escolhas mais inteligentes de consumo.'
+            },
+            {
+                'text': 'O que é um investimento?',
+                'option_a': 'Gastar dinheiro em jogos',
+                'option_b': 'Guardar dinheiro embaixo do colchão',
+                'option_c': 'Aplicar dinheiro esperando receber mais no futuro',
+                'option_d': 'Emprestar dinheiro para amigos',
+                'correct_option': 'C',
+                'explanation': 'Investimento é quando aplicamos dinheiro em algo (como poupança, ações, títulos) com a expectativa de receber um retorno maior no futuro, fazendo nosso dinheiro crescer.'
+            },
+            {
+                'text': 'Como podemos economizar energia em casa?',
+                'option_a': 'Deixando todas as luzes acesas',
+                'option_b': 'Usando vários aparelhos ao mesmo tempo',
+                'option_c': 'Apagando as luzes ao sair e usando aparelhos eficientes',
+                'option_d': 'Nunca usando aparelhos elétricos',
+                'correct_option': 'C',
+                'explanation': 'Economizar energia inclui hábitos como apagar luzes em ambientes vazios, usar aparelhos eficientes e evitar desperdícios. Isso ajuda tanto o meio ambiente quanto o orçamento familiar.'
+            },
+            {
+                'text': 'O que significa ser sustentável financeiramente?',
+                'option_a': 'Gastar todo o dinheiro que ganha',
+                'option_b': 'Nunca gastar dinheiro',
+                'option_c': 'Manter equilíbrio entre ganhos, gastos e economia',
+                'option_d': 'Pedir dinheiro emprestado sempre',
+                'correct_option': 'C',
+                'explanation': 'Ser sustentável financeiramente significa manter um equilíbrio saudável entre o que se ganha, o que se gasta e o que se guarda, garantindo estabilidade financeira a longo prazo.'
+            },
+            {
+                'text': 'Por que é importante ter objetivos financeiros?',
+                'option_a': 'Para gastar mais dinheiro',
+                'option_b': 'Para impressionar os amigos',
+                'option_c': 'Para planejar e realizar sonhos de forma organizada',
+                'option_d': 'Para ficar mais rico que todos',
+                'correct_option': 'C',
+                'explanation': 'Objetivos financeiros nos ajudam a planejar nosso futuro, organizar nossas economias e realizar nossos sonhos de forma responsável e planejada.'
+            },
+            {
+                'text': 'Como o uso do cartão de crédito afeta nosso orçamento?',
+                'option_a': 'Não afeta, pois é dinheiro grátis',
+                'option_b': 'É sempre melhor que dinheiro em espécie',
+                'option_c': 'Pode gerar dívidas se não for usado com responsabilidade',
+                'option_d': 'Só deve ser usado em emergências',
+                'correct_option': 'C',
+                'explanation': 'O cartão de crédito é uma forma de pagamento que pode gerar dívidas se não for usado com planejamento e responsabilidade, pois o dinheiro gasto precisa ser pago posteriormente, geralmente com juros.'
             }
         ]
 

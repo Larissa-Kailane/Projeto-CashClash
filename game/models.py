@@ -19,6 +19,7 @@ class GameState(models.Model):
     lives = models.IntegerField(default=3)
     current_question = models.ForeignKey(Question, on_delete=models.SET_NULL, null=True, blank=True)
     finished = models.BooleanField(default=False)
+    answered_questions = models.ManyToManyField(Question, related_name='games_answered', blank=True)
 
     def __str__(self):
         return f"Posição: {self.position}, Vidas: {self.lives}"
