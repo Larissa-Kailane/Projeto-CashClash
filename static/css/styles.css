@@ -7,8 +7,7 @@
   font-style: normal !important;
   font-size: 4em !important;
   color: #0FF98E !important; /* Verde original do jogo */
-  text-shadow: none !important;
-  -webkit-text-stroke: none !important;
+  -webkit-text-stroke: 1px black !important; /* Adicionando borda preta fina */
   letter-spacing: 2px !important;
   transform: skew(-5deg) !important;
   background-color: transparent !important;
