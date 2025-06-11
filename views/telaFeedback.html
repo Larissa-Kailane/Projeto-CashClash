@@ -53,6 +53,7 @@
       color: white;
       font-weight: bold;
       white-space: nowrap;
+      transition: all 0.3s ease;
     }
 
     .casa.inicio {
@@ -61,6 +62,12 @@
 
     .casa.fim {
       background-color: #FEC764;
+    }
+
+    .casa.atual {
+      background-color: #6199EB;
+      transform: scale(1.1);
+      box-shadow: 0 4px 8px rgba(97, 153, 235, 0.3);
     }
 
     .painel {
@@ -75,11 +82,21 @@
 
     .painel h2 {
       font-size: 1.8em;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
 
     .painel p {
       font-size: 1.1em;
+      margin-bottom: 15px;
+      line-height: 1.4;
+    }
+
+    .explicacao {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 10px;
+      margin: 15px 0;
+      text-align: left;
     }
 
     .botao-play {
@@ -98,40 +115,40 @@
 
     .botao-play:hover {
       background-color: #9EFFAA;
-    }  </style>
+    }
+
+    .resultado-correto {
+      color: #C0FFC7;
+    }
+
+    .resultado-incorreto {
+      color: #FEC764;
+    }
+  </style>
 </head>
 <body>
   <div class="titulo">CASH CLASH</div>
   <div class="tabuleiro-wrapper">
     <div class="tabuleiro">
-      
-      <div class="casa inicio">Início</div>
-      <div class="casa">1</div>
-      <div class="casa">2</div>
-      <div class="casa">3</div>
-      <div class="casa">4</div>
-      <div class="casa">5</div>
-      <div class="casa">6</div>
-      <div class="casa">7</div>
-      <div class="casa">8</div>
-      <div class="casa">9</div>
-      <div class="casa">10</div>
-      <div class="casa fim">Fim</div>
-    </div>
-  </div>
+      <div class="casa inicio {% if posicao == 1 %}atual{% endif %}">Início</div>
+      {% for i in "12345678910"|make_list %}
+        <div class="casa {% if posicao == i|add:"1" %}atual{% endif %}">{{ i }}</div>
+      {% endfor %}
+      <div class="casa fim {% if posicao > 10 %}atual{% endif %}">Fim</div>
     </div>
   </div>
 
   <div class="painel">
     {% if acertou %}
-      <h2>Parabéns, você acertou a resposta!</h2>
+      <h2 class="resultado-correto">Parabéns, você acertou!</h2>
     {% else %}
-      <h2>Você errou</h2>
+      <h2 class="resultado-incorreto">Ops, não foi dessa vez...</h2>
     {% endif %}
-    <p><strong>Entenda mais sobre os juros simples:</strong></p>
+    
     <div class="explicacao">
       {{ explicacao }}
     </div>
+
     <form action="{% url 'tela_pergunta' %}" method="get">
       <button class="botao-play">Avançar</button>
     </form>

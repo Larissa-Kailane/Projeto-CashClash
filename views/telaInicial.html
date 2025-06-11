@@ -53,6 +53,7 @@
       color: white;
       font-weight: bold;
       white-space: nowrap;
+      transition: all 0.3s ease;
     }
 
     .casa.inicio {
@@ -61,6 +62,12 @@
 
     .casa.fim {
       background-color: #FEC764;
+    }
+
+    .casa.atual {
+      background-color: #6199EB;
+      transform: scale(1.1);
+      box-shadow: 0 4px 8px rgba(97, 153, 235, 0.3);
     }
 
     .painel {
@@ -107,17 +114,10 @@
 
   <div class="tabuleiro-wrapper">
     <div class="tabuleiro">
-      <div class="casa inicio">Início</div>
-      <div class="casa">1</div>
-      <div class="casa">2</div>
-      <div class="casa">3</div>
-      <div class="casa">4</div>
-      <div class="casa">5</div>
-      <div class="casa">6</div>
-      <div class="casa">7</div>
-      <div class="casa">8</div>
-      <div class="casa">9</div>
-      <div class="casa">10</div>
+      <div class="casa inicio atual">Início</div>
+      {% for i in "12345678910"|make_list %}
+        <div class="casa">{{ i }}</div>
+      {% endfor %}
       <div class="casa fim">Fim</div>
     </div>
   </div>

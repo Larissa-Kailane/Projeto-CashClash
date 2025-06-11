@@ -30,7 +30,16 @@ class GameActions:
         if not game_state.current_question:
             return False, "Nenhuma pergunta atual"
 
-        is_correct = answer.upper() == game_state.current_question.correct_option
+        # Mapeia a resposta do usuário para a letra correspondente
+        answer_map = {
+            game_state.current_question.option_a: 'A',
+            game_state.current_question.option_b: 'B',
+            game_state.current_question.option_c: 'C',
+            game_state.current_question.option_d: 'D'
+        }
+
+        user_answer = answer_map.get(answer, '')
+        is_correct = user_answer == game_state.current_question.correct_option
         
         if is_correct:
             game_state.position += 1
@@ -44,7 +53,7 @@ class GameActions:
                 game_state.finished = True
         
         game_state.save()
-        return is_correct, game_state.current_question.explanation if is_correct else "Resposta incorreta"
+        return is_correct, game_state.current_question.explanation if is_correct else "Resposta incorreta. A resposta correta era: " + getattr(game_state.current_question, f'option_{game_state.current_question.correct_option.lower()}')
 
     @staticmethod
     def get_game_state():

@@ -53,6 +53,7 @@
       color: white;
       font-weight: bold;
       white-space: nowrap;
+      transition: all 0.3s ease;
     }
 
     .casa.inicio {
@@ -61,6 +62,12 @@
 
     .casa.fim {
       background-color: #FEC764;
+    }
+
+    .casa.atual {
+      background-color: #6199EB;
+      transform: scale(1.1);
+      box-shadow: 0 4px 8px rgba(97, 153, 235, 0.3);
     }
 
     .painel {
@@ -94,10 +101,22 @@
       cursor: pointer;
       font-weight: bold;
       text-decoration: none;
+      width: 100%;
+      max-width: 400px;
+      text-align: left;
     }
 
     .botao-play:hover {
       background-color: #9EFFAA;
+    }
+
+    .alternativa {
+      margin: 10px 0;
+    }
+
+    .alternativa-letra {
+      font-weight: bold;
+      margin-right: 10px;
     }
   </style>
 </head>
@@ -105,18 +124,11 @@
   <div class="titulo">CASH CLASH</div>
   <div class="tabuleiro-wrapper">
     <div class="tabuleiro">
-      <div class="casa inicio">Início</div>
-      <div class="casa">1</div>
-      <div class="casa">2</div>
-      <div class="casa">3</div>
-      <div class="casa">4</div>
-      <div class="casa">5</div>
-      <div class="casa">6</div>
-      <div class="casa">7</div>
-      <div class="casa">8</div>
-      <div class="casa">9</div>
-      <div class="casa">10</div>
-      <div class="casa fim">Fim</div>
+      <div class="casa inicio {% if posicao == 1 %}atual{% endif %}">Início</div>
+      {% for i in "12345678910"|make_list %}
+        <div class="casa {% if posicao == i|add:"1" %}atual{% endif %}">{{ i }}</div>
+      {% endfor %}
+      <div class="casa fim {% if posicao > 10 %}atual{% endif %}">Fim</div>
     </div>
   </div>
 
@@ -124,9 +136,26 @@
     <h2>{{ pergunta.texto }}</h2>
     <form method="post">
       {% csrf_token %}
-      {% for alternativa in pergunta.alternativas %}
-        <div><button class="botao-play" type="submit" name="resposta" value="{{ alternativa }}">{{ alternativa }}</button></div>
-      {% endfor %}
+      <div class="alternativa">
+        <button class="botao-play" type="submit" name="resposta" value="{{ pergunta.alternativas.0 }}">
+          <span class="alternativa-letra">A)</span> {{ pergunta.alternativas.0 }}
+        </button>
+      </div>
+      <div class="alternativa">
+        <button class="botao-play" type="submit" name="resposta" value="{{ pergunta.alternativas.1 }}">
+          <span class="alternativa-letra">B)</span> {{ pergunta.alternativas.1 }}
+        </button>
+      </div>
+      <div class="alternativa">
+        <button class="botao-play" type="submit" name="resposta" value="{{ pergunta.alternativas.2 }}">
+          <span class="alternativa-letra">C)</span> {{ pergunta.alternativas.2 }}
+        </button>
+      </div>
+      <div class="alternativa">
+        <button class="botao-play" type="submit" name="resposta" value="{{ pergunta.alternativas.3 }}">
+          <span class="alternativa-letra">D)</span> {{ pergunta.alternativas.3 }}
+        </button>
+      </div>
     </form>
   </div>
 </body>
