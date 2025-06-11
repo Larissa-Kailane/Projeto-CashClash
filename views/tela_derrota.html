@@ -73,6 +73,19 @@
       font-weight: bold;
       white-space: nowrap;
       transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .casa::before {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      right: -4px;
+      bottom: -4px;
+      background-color: rgba(164, 196, 243, 0.5);
+      border-radius: 10px;
+      z-index: -1;
     }
 
     .casa.inicio {
@@ -80,8 +93,16 @@
       color: #666;
     }
 
+    .casa.inicio::before {
+      background-color: rgba(152, 251, 152, 0.5);
+    }
+
     .casa.fim {
       background-color: #FEC764;
+    }
+
+    .casa.fim::before {
+      background-color: rgba(254, 199, 100, 0.5);
     }
 
     .casa.atual {
@@ -90,15 +111,33 @@
       box-shadow: 0 4px 8px rgba(97, 153, 235, 0.3);
     }
 
+    .casa.atual::before {
+      background-color: rgba(97, 153, 235, 0.5);
+      transform: scale(1.1);
+    }
+
     .painel {
       background-color: #9747FF;
       padding: 40px;
       border-radius: 20px;
       text-align: center;
-      max-width: 500px;
+      max-width: 600px;
       width: 90%;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-      margin-top: 30px;
+      margin: 30px auto;
+      position: relative;
+    }
+
+    .painel::before {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      right: -4px;
+      bottom: -4px;
+      background-color: rgba(151, 71, 255, 0.5);
+      border-radius: 20px;
+      z-index: -1;
     }
 
     .painel h2 {
@@ -110,7 +149,7 @@
     .mensagem {
       color: white;
       font-size: 1.2em;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
     .vidas {
@@ -140,6 +179,7 @@
       font-weight: bold;
       text-decoration: none;
       transition: background-color 0.3s ease;
+      margin-top: 20px;
     }
 
     .botao-reiniciar:hover {

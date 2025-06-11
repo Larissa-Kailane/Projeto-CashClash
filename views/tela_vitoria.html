@@ -53,6 +53,19 @@
       color: white;
       font-weight: bold;
       white-space: nowrap;
+      position: relative;
+    }
+
+    .casa::before {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      right: -4px;
+      bottom: -4px;
+      background-color: rgba(164, 196, 243, 0.5);
+      border-radius: 10px;
+      z-index: -1;
     }
 
     .casa.inicio {
@@ -60,28 +73,52 @@
       color: #666;
     }
 
+    .casa.inicio::before {
+      background-color: rgba(152, 251, 152, 0.5);
+    }
+
     .casa.fim {
       background-color: #FEC764;
     }
 
+    .casa.fim::before {
+      background-color: rgba(254, 199, 100, 0.5);
+    }
+
     .painel {
       background-color: #FEC764;
-      color: white;
-      padding: 30px;
+      padding: 40px;
       border-radius: 20px;
-      box-shadow: 5px 5px 0 rgba(254, 199, 100, 0.3);
-      max-width: 500px;
-      margin-top: 30px;
+      text-align: center;
+      max-width: 600px;
+      width: 90%;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      margin: 30px auto;
+      position: relative;
+    }
+
+    .painel::before {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      right: -4px;
+      bottom: -4px;
+      background-color: rgba(254, 199, 100, 0.5);
+      border-radius: 20px;
+      z-index: -1;
     }
 
     .painel h2 {
-      font-size: 1.8em;
+      font-size: 2em;
+      color: white;
       margin-bottom: 20px;
     }
 
     .painel p {
       font-size: 1.2em;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
+      color: white;
     }
 
     .emblema {
@@ -91,8 +128,7 @@
 
     .botao-reiniciar {
       display: inline-block;
-      margin-top: 20px;
-      padding: 10px 30px;
+      padding: 12px 40px;
       background-color: #C0FFC7;
       color: black;
       border: none;
@@ -101,6 +137,8 @@
       cursor: pointer;
       font-weight: bold;
       text-decoration: none;
+      transition: background-color 0.3s ease;
+      margin-top: 20px;
     }
 
     .botao-reiniciar:hover {
