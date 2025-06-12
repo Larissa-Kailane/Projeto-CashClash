@@ -19,17 +19,27 @@
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      min-height: 100vh;
-      padding: 30px 20px;
+      height: 100vh;
+      overflow: hidden;
+      padding: 20px;
       text-align: center;
     }
 
-    /* Estilos do título movidos para styles.css */
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
     .tabuleiro-wrapper {
-      overflow-x: auto;
       width: 100%;
       max-width: 100%;
+      margin: 20px 0;
     }
 
     .tabuleiro {
@@ -38,7 +48,8 @@
       justify-content: center;
       gap: 15px;
       padding: 10px;
-      min-width: 700px;
+      width: 100%;
+      min-width: min-content;
     }
 
     .casa {
@@ -84,14 +95,17 @@
 
     .painel {
       background-color: #FEC764;
-      padding: 40px;
+      padding: 30px;
       border-radius: 20px;
       text-align: center;
-      max-width: 600px;
       width: 90%;
+      max-width: 600px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-      margin: 30px auto;
+      margin: 20px auto;
       position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
     }
 
     .painel::before {
@@ -107,21 +121,21 @@
     }
 
     .painel h2 {
-      font-size: 2em;
+      font-size: clamp(1.5em, 4vw, 2em);
       color: white;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
     .painel p {
-      font-size: 1.2em;
-      margin-bottom: 20px;
+      font-size: clamp(1em, 3vw, 1.2em);
+      margin-bottom: 10px;
       color: white;
     }
 
     .emblema {
-      width: 200px;
-      height: 200px;
-      margin: 30px auto;
+      width: clamp(120px, 30vw, 200px);
+      height: clamp(120px, 30vw, 200px);
+      margin: 15px auto;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -143,46 +157,97 @@
       color: black;
       border: none;
       border-radius: 10px;
-      font-size: 1.2em;
+      font-size: clamp(1em, 2.5vw, 1.2em);
       cursor: pointer;
       font-weight: bold;
       text-decoration: none;
       transition: background-color 0.3s ease;
-      margin-top: 20px;
     }
 
     .botao-reiniciar:hover {
       background-color: #9EFFAA;
     }
+
+    @media (max-height: 600px) {
+      .titulo {
+        font-size: 2em !important;
+        padding: 10px !important;
+        margin-bottom: 5px !important;
+      }
+
+      .painel {
+        padding: 20px;
+      }
+
+      .casa {
+        padding: 8px 16px;
+      }
+
+      .emblema {
+        width: 100px;
+        height: 100px;
+        margin: 10px auto;
+      }
+
+      .botao-reiniciar {
+        padding: 8px 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .titulo {
+        font-size: 2.5em !important;
+      }
+
+      .tabuleiro {
+        gap: 10px;
+      }
+
+      .casa {
+        padding: 8px 16px;
+        font-size: 0.9em;
+      }
+
+      .painel h2 {
+        font-size: clamp(1.2em, 3.5vw, 1.8em);
+      }
+
+      .emblema {
+        width: 150px;
+        height: 150px;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="titulo">CASH CLASH</div>
+  <div class="container">
+    <div class="titulo">CASH CLASH</div>
 
-  <div class="tabuleiro-wrapper">
-    <div class="tabuleiro">
-      <div class="casa inicio">Início</div>
-      <div class="casa">1</div>
-      <div class="casa">2</div>
-      <div class="casa">3</div>
-      <div class="casa">4</div>
-      <div class="casa">5</div>
-      <div class="casa">6</div>
-      <div class="casa">7</div>
-      <div class="casa">8</div>
-      <div class="casa">9</div>
-      <div class="casa">10</div>
-      <div class="casa fim">Fim</div>
+    <div class="tabuleiro-wrapper">
+      <div class="tabuleiro">
+        <div class="casa inicio">Início</div>
+        <div class="casa">1</div>
+        <div class="casa">2</div>
+        <div class="casa">3</div>
+        <div class="casa">4</div>
+        <div class="casa">5</div>
+        <div class="casa">6</div>
+        <div class="casa">7</div>
+        <div class="casa">8</div>
+        <div class="casa">9</div>
+        <div class="casa">10</div>
+        <div class="casa fim">Fim</div>
+      </div>
     </div>
-  </div>
 
-  <div class="painel">
-    <h2>Parabéns, você concluiu sua jornada de aprendizado sobre matemática financeira!</h2>
-    <p>Agora você parte da elite do CashClash e tem o emblema de campeão!</p>
-    <div class="emblema">
-      <img src="{% static 'images/emblema.png' %}" alt="Emblema de Campeão">
+    <div class="painel">
+      <h2>Parabéns, você concluiu sua jornada de aprendizado sobre matemática financeira!</h2>
+      <p>Agora você parte da elite do CashClash e tem o emblema de campeão!</p>
+      <div class="emblema">
+        <img src="{% static 'images/emblema.png' %}" alt="Emblema de Campeão">
+      </div>
+      <a href="{% url 'iniciar_jogo' %}" class="botao-reiniciar">Jogar Novamente</a>
     </div>
-    <a href="{% url 'iniciar_jogo' %}" class="botao-reiniciar">Jogar Novamente</a>
   </div>
 </body>
 </html> 

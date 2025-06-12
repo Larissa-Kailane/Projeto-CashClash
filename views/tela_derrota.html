@@ -19,15 +19,32 @@
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      min-height: 100vh;
-      padding: 30px 20px;
+      height: 100vh;
+      overflow: hidden;
+      padding: 20px;
       text-align: center;
     }
 
-    /* Estilos do título movidos para styles.css */
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .header {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
 
     .vidas-container {
-      margin-bottom: 20px;
       font-size: 1.5em;
       background-color: rgba(255, 192, 203, 0.2);
       padding: 8px 15px;
@@ -46,9 +63,9 @@
     }
 
     .tabuleiro-wrapper {
-      overflow-x: auto;
       width: 100%;
       max-width: 100%;
+      margin: 20px 0;
     }
 
     .tabuleiro {
@@ -57,7 +74,8 @@
       justify-content: center;
       gap: 15px;
       padding: 10px;
-      min-width: 700px;
+      width: 100%;
+      min-width: min-content;
     }
 
     .casa {
@@ -115,14 +133,17 @@
 
     .painel {
       background-color: #9747FF;
-      padding: 40px;
+      padding: 30px;
       border-radius: 20px;
       text-align: center;
-      max-width: 600px;
       width: 90%;
+      max-width: 600px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-      margin: 30px auto;
+      margin: 20px auto;
       position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
     }
 
     .painel::before {
@@ -138,21 +159,21 @@
     }
 
     .painel h2 {
-      font-size: 2em;
+      font-size: clamp(1.5em, 4vw, 2em);
       color: white;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
     .mensagem {
       color: white;
-      font-size: 1.2em;
-      margin-bottom: 20px;
+      font-size: clamp(1em, 3vw, 1.2em);
+      margin-bottom: 10px;
     }
 
     .vidas {
-      font-size: 1.5em;
+      font-size: clamp(1.2em, 3.5vw, 1.5em);
       color: #FFB6C1;
-      margin: 20px 0;
+      margin: 15px 0;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -171,45 +192,97 @@
       color: black;
       border: none;
       border-radius: 10px;
-      font-size: 1.2em;
+      font-size: clamp(1em, 2.5vw, 1.2em);
       cursor: pointer;
       font-weight: bold;
       text-decoration: none;
       transition: background-color 0.3s ease;
-      margin-top: 20px;
     }
 
     .botao-reiniciar:hover {
       background-color: #9EFFAA;
     }
+
+    @media (max-height: 600px) {
+      .titulo {
+        font-size: 2em !important;
+        padding: 10px !important;
+        margin-bottom: 5px !important;
+      }
+
+      .vidas-container {
+        font-size: 1.2em;
+        padding: 6px 12px;
+      }
+
+      .painel {
+        padding: 20px;
+      }
+
+      .casa {
+        padding: 8px 16px;
+      }
+
+      .botao-reiniciar {
+        padding: 8px 30px;
+      }
+
+      .vidas {
+        margin: 10px 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .titulo {
+        font-size: 2.5em !important;
+      }
+
+      .tabuleiro {
+        gap: 10px;
+      }
+
+      .casa {
+        padding: 8px 16px;
+        font-size: 0.9em;
+      }
+
+      .painel h2 {
+        font-size: clamp(1.2em, 3.5vw, 1.8em);
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="titulo">CASH CLASH</div>
-  <div class="vidas-container">
-    <span class="vida">❌</span>
-    <span class="vidas-texto">0 VIDAS</span>
-  </div>
-  <div class="tabuleiro-wrapper">
-    <div class="tabuleiro">
-      <div class="casa inicio">Início</div>
-      {% for i in "123456789"|make_list %}
-        <div class="casa {% if posicao == i|add:"0" %}atual{% endif %}">{{ i }}</div>
-      {% endfor %}
-      <div class="casa {% if posicao == 10 %}atual{% endif %}">10</div>
-      <div class="casa fim {% if posicao > 10 %}atual{% endif %}">Fim</div>
+  <div class="container">
+    <div class="header">
+      <div class="titulo">CASH CLASH</div>
+      <div class="vidas-container">
+        <span class="vida">❌</span>
+        <span class="vidas-texto">0 VIDAS</span>
+      </div>
     </div>
-  </div>
 
-  <div class="painel">
-    <h2>Você perdeu todas as suas vidas!</h2>
-    <p class="mensagem">Errar faz parte do aprendizado.</p>
-    <p class="mensagem">Reinicie o jogo e continue aprendendo</p>
-    <div class="vidas">
-      <span class="vida-modal">❌</span>
-      <span>0 VIDAS</span>
+    <div class="tabuleiro-wrapper">
+      <div class="tabuleiro">
+        <div class="casa inicio">Início</div>
+        {% for i in "123456789"|make_list %}
+          <div class="casa {% if posicao == i|add:"0" %}atual{% endif %}">{{ i }}</div>
+        {% endfor %}
+        <div class="casa {% if posicao == 10 %}atual{% endif %}">10</div>
+        <div class="casa fim {% if posicao > 10 %}atual{% endif %}">Fim</div>
+      </div>
     </div>
-    <a href="{% url 'iniciar_jogo' %}" class="botao-reiniciar">Reiniciar</a>
+
+    <div class="painel">
+      <h2>Você perdeu todas as suas vidas!</h2>
+      <p class="mensagem">Errar faz parte do aprendizado.</p>
+      <p class="mensagem">Reinicie o jogo e continue aprendendo</p>
+      <div class="vidas">
+        <span class="vida-modal">❌</span>
+        <span>0 VIDAS</span>
+      </div>
+      <a href="{% url 'iniciar_jogo' %}" class="botao-reiniciar">Reiniciar</a>
+    </div>
   </div>
 </body>
 </html> 

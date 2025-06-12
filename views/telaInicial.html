@@ -18,18 +18,28 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
-      padding: 30px 20px;
+      justify-content: space-between;
+      height: 100vh;
+      overflow: hidden;
+      padding: 20px;
       text-align: center;
     }
 
-    /* Estilos do título movidos para styles.css */
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
     .tabuleiro-wrapper {
-      overflow-x: auto;
       width: 100%;
       max-width: 100%;
+      margin: 20px 0;
     }
 
     .tabuleiro {
@@ -38,7 +48,8 @@
       justify-content: center;
       gap: 15px;
       padding: 10px;
-      min-width: 700px;
+      width: 100%;
+      min-width: min-content;
     }
 
     .casa {
@@ -96,13 +107,13 @@
 
     .painel {
       background-color: #FF686B;
-      padding: 40px;
+      padding: 30px;
       border-radius: 20px;
       text-align: center;
-      max-width: 600px;
       width: 90%;
+      max-width: 600px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-      margin: 30px auto;
+      margin: 20px auto;
       position: relative;
     }
 
@@ -119,14 +130,14 @@
     }
 
     .painel h2 {
-      font-size: 2em;
+      font-size: clamp(1.5em, 4vw, 2em);
       color: white;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
     .painel p {
-      font-size: 1.2em;
-      margin-bottom: 20px;
+      font-size: clamp(1em, 3vw, 1.2em);
+      margin-bottom: 15px;
       color: white;
     }
 
@@ -137,40 +148,71 @@
       color: black;
       border: none;
       border-radius: 10px;
-      font-size: 1.2em;
+      font-size: clamp(1em, 3vw, 1.2em);
       cursor: pointer;
       font-weight: bold;
       text-decoration: none;
       transition: background-color 0.3s ease;
-      margin-top: 20px;
+      margin-top: 15px;
     }
 
     .botao-play:hover {
       background-color: #9EFFAA;
     }
+
+    @media (max-height: 600px) {
+      .titulo {
+        font-size: 2em !important;
+        padding: 10px !important;
+        margin-bottom: 10px !important;
+      }
+
+      .painel {
+        padding: 20px;
+      }
+
+      .casa {
+        padding: 8px 16px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .titulo {
+        font-size: 2.5em !important;
+      }
+
+      .tabuleiro {
+        gap: 10px;
+      }
+
+      .casa {
+        padding: 8px 16px;
+        font-size: 0.9em;
+      }
+    }
   </style>
 </head>
 <body>
+  <div class="container">
+    <div class="titulo">CASH CLASH</div>
 
-  <div class="titulo">CASH CLASH</div>
+    <div class="tabuleiro-wrapper">
+      <div class="tabuleiro">
+        <div class="casa inicio atual">Início</div>
+        {% for i in "123456789"|make_list %}
+          <div class="casa">{{ i }}</div>
+        {% endfor %}
+        <div class="casa">10</div>
+        <div class="casa fim">Fim</div>
+      </div>
+    </div>
 
-  <div class="tabuleiro-wrapper">
-    <div class="tabuleiro">
-      <div class="casa inicio atual">Início</div>
-      {% for i in "123456789"|make_list %}
-        <div class="casa">{{ i }}</div>
-      {% endfor %}
-      <div class="casa">10</div>
-      <div class="casa fim">Fim</div>
+    <div class="painel">
+      <h2>Bem-vindo ao CashClash!</h2>
+      <p>Aqui você aprende matemática financeira de forma leve e divertida.</p>
+      <p><strong>Aperte o play para começar:</strong></p>
+      <a href="{% url 'iniciar_jogo' %}" class="botao-play">Play</a>
     </div>
   </div>
-
-  <div class="painel">
-    <h2>Bem-vindo ao CashClash!</h2>
-    <p>Aqui você aprende matemática financeira de forma leve e divertida.</p>
-    <p><strong>Aperte o play para começar:</strong></p>
-    <a href="{% url 'iniciar_jogo' %}" class="botao-play">Play</a>
-  </div>
-
 </body>
 </html>
