@@ -27,33 +27,36 @@ O jogador percorre um tabuleiro com 10 casas, respondendo a desafios matemático
 
 ## 👩‍💻 Equipe
 
+<div align="center">
+
 <table>
   <tr>
     <td align="center">
       <a href="https://github.com/Larissa-Kailane">
-        <img src="https://github.com/Larissa-Kailane.png" width="100px;" alt="Larissa Kailane"/><br />
+        <img src="https://avatars.githubusercontent.com/Larissa-Kailane" width="100px;" alt="Larissa Kailane"/><br />
         <sub><b>Larissa Kailane</b></sub>
-      </a>
     </td>
     <td align="center">
       <a href="https://github.com/lucianaliebl">
-        <img src="https://github.com/lucianaliebl.png" width="100px;" alt="Luciana Liebl"/><br />
+        <img src="https://avatars.githubusercontent.com/lucianaliebl" width="100px;" alt="Luciana Liebl"/><br />
         <sub><b>Luciana Liebl</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/Mariacmv">
-        <img src="https://github.com/Mariacmv.png" width="100px;" alt="Maria Clara"/><br />
+        <img src="https://avatars.githubusercontent.com/Mariacmv" width="100px;" alt="Maria Clara Guerreira"/><br />
         <sub><b>Maria Clara</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/RafaPrattes">
-        <img src="https://github.com/RafaPrattes.png" width="100px;" alt="Rafaela Prates"/><br />
+        <img src="https://avatars.githubusercontent.com/RafaPrattes" width="100px;" alt="Rafaela Prates"/><br />
         <sub><b>Rafaela Prates</b></sub>
       </a>
     </td>
   </tr>
 </table>
+
+</div>
 
 
