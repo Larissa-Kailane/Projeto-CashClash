@@ -14,7 +14,7 @@ O jogador percorre um tabuleiro com 10 casas, respondendo a desafios matemático
 - 🔁 **Reinício Inteligente:** Perdeu todas as vidas? O jogo recomeça automaticamente.  
 - 📱 **Interface Intuitiva e Colorida:** Feita especialmente para o público jovem.
 
-## 🔧 Tecnologias sugeridas
+## 🔧 Tecnologias utilizadas
 
 - **Frontend:** HTML, CSS, JavaScript  
 - **Backend:** Node.js ou Django  
