@@ -1,10 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CashClash - Jogo de Matemática Financeira</title>
-  {% load static %}
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   <style>
     * {
@@ -191,6 +191,42 @@
         font-size: 0.9em;
       }
     }
+
+    .persona-image {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 180px;
+      height: auto;
+      z-index: 9999;
+      pointer-events: none;
+    }
+
+    @media (max-width: 768px) {
+      .persona-image {
+        width: 120px;
+        bottom: 10px;
+        right: 10px;
+      }
+    }
+
+    .persona-image-2 {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 180px;
+      height: auto;
+      z-index: 9999;
+      pointer-events: none;
+    }
+
+    @media (max-width: 768px) {
+      .persona-image-2 {
+        width: 120px;
+        bottom: 10px;
+        left: 10px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -216,6 +252,8 @@
         <a href="{% url 'iniciar_jogo' %}" class="botao-play">JOGAR</a>
       </div>
     </div>
+    <img src="{% static 'images/persona1.png' %}" alt="Persona" class="persona-image">
+    <img src="{% static 'images/Persona2.png' %}" alt="Persona 2" class="persona-image-2">
   </div>
 </body>
 </html>

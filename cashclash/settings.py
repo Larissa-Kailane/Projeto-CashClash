@@ -57,7 +57,10 @@ ROOT_URLCONF = 'cashclash.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'views')],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'views')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
