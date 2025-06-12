@@ -2,7 +2,8 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Vida Perdida - Cash Clash</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CashClash - Vida Perdida</title>
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   <style>
@@ -60,6 +61,12 @@
     .vidas-texto {
       color: #666;
       font-weight: bold;
+    }
+
+    .coracao {
+      color: #FFB6C1;
+      font-size: 1.2em;
+      margin-left: 5px;
     }
 
     .tabuleiro-wrapper {
@@ -255,33 +262,31 @@
 <body>
   <div class="container">
     <div class="header">
-      <div class="titulo">CASH CLASH</div>
+      <h1 class="titulo">CashClash</h1>
       <div class="vidas-container">
-        <span class="vida">♥</span>
-        <span class="vidas-texto">{{ vidas }} VIDAS</span>
+        Vidas: <span class="vidas">{{ vidas }}</span><span class="coracao">♥</span>
       </div>
     </div>
-
-    <div class="tabuleiro-wrapper">
-      <div class="tabuleiro">
-        <div class="casa inicio">Início</div>
-        {% for i in "123456789"|make_list %}
-          <div class="casa {% if posicao == i|add:"0" %}atual{% endif %}">{{ i }}</div>
-        {% endfor %}
-        <div class="casa {% if posicao == 10 %}atual{% endif %}">10</div>
-        <div class="casa fim {% if posicao > 10 %}atual{% endif %}">Fim</div>
+    <div class="content-wrapper">
+      <div class="tabuleiro-wrapper">
+        <div class="tabuleiro">
+          <div class="casa inicio {% if posicao == 0 %}atual{% endif %}">Início</div>
+          {% for i in "123456789"|make_list %}
+            <div class="casa {% if posicao == i|add:"0" %}atual{% endif %}">{{ i }}</div>
+          {% endfor %}
+          <div class="casa {% if posicao == 10 %}atual{% endif %}">10</div>
+          <div class="casa fim {% if posicao > 10 %}atual{% endif %}">Fim</div>
+        </div>
       </div>
-    </div>
-
-    <div class="painel">
-      <h2>Resposta Incorreta!</h2>
-      <p class="mensagem">Você acaba de perder uma vida.</p>
-      <div class="vidas">
-        <span class="vida-modal">♥</span>
-        <span>{{ vidas }} VIDAS</span>
+      <div class="painel painel-vida-perdida">
+        <h2>Ops!</h2>
+        <p>A resposta correta era: {{ resposta_correta }}</p>
+        <div class="explicacao">
+          <h3>Entenda o porquê:</h3>
+          <p>{{ explicacao }}</p>
+        </div>
+        <a href="{% url 'tela_pergunta' %}" class="botao-tentar">Tentar Novamente</a>
       </div>
-      <p class="mensagem">Responda novamente a pergunta!</p>
-      <a href="{% url 'tela_pergunta' %}" class="botao-tentar">Responder de novo</a>
     </div>
   </div>
 </body>

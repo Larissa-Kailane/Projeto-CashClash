@@ -2,7 +2,8 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Pergunta</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CashClash - Pergunta</title>
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   <style>
@@ -60,6 +61,12 @@
     .vidas-texto {
       color: #666;
       font-weight: bold;
+    }
+
+    .coracao {
+      color: #FFB6C1;
+      font-size: 1.2em;
+      margin-left: 5px;
     }
 
     .tabuleiro-wrapper {
@@ -252,49 +259,57 @@
 <body>
   <div class="container">
     <div class="header">
-      <div class="titulo">CASH CLASH</div>
+      <h1 class="titulo">CashClash</h1>
       <div class="vidas-container">
-        <span class="vida">♥</span>
-        <span class="vidas-texto">{{ vidas }} VIDAS</span>
+        Vidas: <span class="vidas">{{ vidas }}</span><span class="coracao">♥</span>
       </div>
     </div>
-
-    <div class="tabuleiro-wrapper">
-      <div class="tabuleiro">
-        <div class="casa inicio">Início</div>
-        {% for i in "123456789"|make_list %}
-          <div class="casa {% if posicao == i|add:"0" %}atual{% endif %}">{{ i }}</div>
-        {% endfor %}
-        <div class="casa {% if posicao == 10 %}atual{% endif %}">10</div>
-        <div class="casa fim">Fim</div>
+    <div class="content-wrapper">
+      <div class="tabuleiro-wrapper">
+        <div class="tabuleiro">
+          <div class="casa inicio {% if posicao == 0 %}atual{% endif %}">Início</div>
+          {% for i in "123456789"|make_list %}
+            <div class="casa {% if posicao == i|add:"0" %}atual{% endif %}">{{ i }}</div>
+          {% endfor %}
+          <div class="casa {% if posicao == 10 %}atual{% endif %}">10</div>
+          <div class="casa fim {% if posicao > 10 %}atual{% endif %}">Fim</div>
+        </div>
       </div>
-    </div>
-
-    <div class="painel">
-      <h2>{{ pergunta.texto }}</h2>
-      <form method="post">
-        {% csrf_token %}
-        <div class="alternativa">
-          <button class="botao-play" type="submit" name="resposta" value="{{ pergunta.alternativas.0 }}">
-            <span class="alternativa-letra">A)</span> {{ pergunta.alternativas.0 }}
-          </button>
-        </div>
-        <div class="alternativa">
-          <button class="botao-play" type="submit" name="resposta" value="{{ pergunta.alternativas.1 }}">
-            <span class="alternativa-letra">B)</span> {{ pergunta.alternativas.1 }}
-          </button>
-        </div>
-        <div class="alternativa">
-          <button class="botao-play" type="submit" name="resposta" value="{{ pergunta.alternativas.2 }}">
-            <span class="alternativa-letra">C)</span> {{ pergunta.alternativas.2 }}
-          </button>
-        </div>
-        <div class="alternativa">
-          <button class="botao-play" type="submit" name="resposta" value="{{ pergunta.alternativas.3 }}">
-            <span class="alternativa-letra">D)</span> {{ pergunta.alternativas.3 }}
-          </button>
-        </div>
-      </form>
+      <div class="painel">
+        <h2>{{ pergunta.texto }}</h2>
+        <form action="{% url 'tela_pergunta' %}" method="post">
+          {% csrf_token %}
+          <div class="alternativa">
+            <input type="radio" name="resposta" value="{{ pergunta.alternativa_a }}" id="alt_a" required>
+            <label for="alt_a">
+              <span class="alternativa-letra">A)</span>
+              {{ pergunta.alternativa_a }}
+            </label>
+          </div>
+          <div class="alternativa">
+            <input type="radio" name="resposta" value="{{ pergunta.alternativa_b }}" id="alt_b" required>
+            <label for="alt_b">
+              <span class="alternativa-letra">B)</span>
+              {{ pergunta.alternativa_b }}
+            </label>
+          </div>
+          <div class="alternativa">
+            <input type="radio" name="resposta" value="{{ pergunta.alternativa_c }}" id="alt_c" required>
+            <label for="alt_c">
+              <span class="alternativa-letra">C)</span>
+              {{ pergunta.alternativa_c }}
+            </label>
+          </div>
+          <div class="alternativa">
+            <input type="radio" name="resposta" value="{{ pergunta.alternativa_d }}" id="alt_d" required>
+            <label for="alt_d">
+              <span class="alternativa-letra">D)</span>
+              {{ pergunta.alternativa_d }}
+            </label>
+          </div>
+          <button type="submit" class="botao-avancar">Responder</button>
+        </form>
+      </div>
     </div>
   </div>
 </body>

@@ -1,253 +1,240 @@
 <!DOCTYPE html>
-{% load static %}
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Vitória - Cash Clash</title>
-  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CashClash - Vitória!</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      background-color: #FAF8CB;
-      font-family: 'Arial Rounded MT Bold', sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      height: 100vh;
-      overflow: hidden;
-      padding: 20px;
-      text-align: center;
-    }
+        body {
+            background-color: #FAF8CB;
+            font-family: 'Arial Rounded MT Bold', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            overflow: hidden;
+            padding: 20px;
+            text-align: center;
+        }
 
-    .container {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      height: 100%;
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    .tabuleiro-wrapper {
-      width: 100%;
-      max-width: 100%;
-      margin: 20px 0;
-    }
+        .tabuleiro-wrapper {
+            width: 100%;
+            max-width: 100%;
+            margin: 20px 0;
+        }
 
-    .tabuleiro {
-      display: flex;
-      flex-wrap: nowrap;
-      justify-content: center;
-      gap: 15px;
-      padding: 10px;
-      width: 100%;
-      min-width: min-content;
-    }
+        .tabuleiro {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 10px;
+            width: 100%;
+            min-width: min-content;
+        }
 
-    .casa {
-      flex: 0 0 auto;
-      padding: 10px 20px;
-      border-radius: 10px;
-      background-color: #A4C4F3;
-      color: white;
-      font-weight: bold;
-      white-space: nowrap;
-      position: relative;
-    }
+        .casa {
+            flex: 0 0 auto;
+            padding: 10px 20px;
+            border-radius: 10px;
+            background-color: #A4C4F3;
+            color: white;
+            font-weight: bold;
+            white-space: nowrap;
+            position: relative;
+        }
 
-    .casa::before {
-      content: '';
-      position: absolute;
-      top: 4px;
-      left: 4px;
-      right: -4px;
-      bottom: -4px;
-      background-color: rgba(164, 196, 243, 0.5);
-      border-radius: 10px;
-      z-index: -1;
-    }
+        .casa::before {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: -4px;
+            bottom: -4px;
+            background-color: rgba(164, 196, 243, 0.5);
+            border-radius: 10px;
+            z-index: -1;
+        }
 
-    .casa.inicio {
-      background-color: #98FB98;
-      color: #666;
-      margin-right: 15px;
-    }
+        .casa.inicio {
+            background-color: #98FB98;
+            color: #666;
+            margin-right: 15px;
+        }
 
-    .casa.inicio::before {
-      background-color: rgba(152, 251, 152, 0.5);
-    }
+        .casa.inicio::before {
+            background-color: rgba(152, 251, 152, 0.5);
+        }
 
-    .casa.fim {
-      background-color: #FEC764;
-    }
+        .casa.fim {
+            background-color: #FEC764;
+        }
 
-    .casa.fim::before {
-      background-color: rgba(254, 199, 100, 0.5);
-    }
+        .casa.fim::before {
+            background-color: rgba(254, 199, 100, 0.5);
+        }
 
-    .painel {
-      background-color: #FEC764;
-      padding: 30px;
-      border-radius: 20px;
-      text-align: center;
-      width: 90%;
-      max-width: 600px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-      margin: 20px auto;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
+        .painel {
+            background-color: #FEC764;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            margin: 20px auto;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
 
-    .painel::before {
-      content: '';
-      position: absolute;
-      top: 4px;
-      left: 4px;
-      right: -4px;
-      bottom: -4px;
-      background-color: rgba(254, 199, 100, 0.5);
-      border-radius: 20px;
-      z-index: -1;
-    }
+        .painel::before {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: -4px;
+            bottom: -4px;
+            background-color: rgba(254, 199, 100, 0.5);
+            border-radius: 20px;
+            z-index: -1;
+        }
 
-    .painel h2 {
-      font-size: clamp(1.5em, 4vw, 2em);
-      color: white;
-      margin-bottom: 15px;
-    }
+        .painel h2 {
+            font-size: clamp(1.5em, 4vw, 2em);
+            color: white;
+            margin-bottom: 15px;
+        }
 
-    .painel p {
-      font-size: clamp(1em, 3vw, 1.2em);
-      margin-bottom: 10px;
-      color: white;
-    }
+        .painel p {
+            font-size: clamp(1em, 3vw, 1.2em);
+            margin-bottom: 10px;
+            color: white;
+        }
 
-    .emblema {
-      width: clamp(120px, 30vw, 200px);
-      height: clamp(120px, 30vw, 200px);
-      margin: 15px auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: white;
-      border-radius: 10px;
-      padding: 10px;
-    }
+        .emblema {
+            width: clamp(120px, 30vw, 200px);
+            height: clamp(120px, 30vw, 200px);
+            margin: 15px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            border-radius: 10px;
+            padding: 10px;
+        }
 
-    .emblema img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
+        .emblema img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
 
-    .botao-reiniciar {
-      display: inline-block;
-      padding: 12px 40px;
-      background-color: #C0FFC7;
-      color: black;
-      border: none;
-      border-radius: 10px;
-      font-size: clamp(1em, 2.5vw, 1.2em);
-      cursor: pointer;
-      font-weight: bold;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
+        .botao-reiniciar {
+            display: inline-block;
+            padding: 12px 40px;
+            background-color: #C0FFC7;
+            color: black;
+            border: none;
+            border-radius: 10px;
+            font-size: clamp(1em, 2.5vw, 1.2em);
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
 
-    .botao-reiniciar:hover {
-      background-color: #9EFFAA;
-    }
+        .botao-reiniciar:hover {
+            background-color: #9EFFAA;
+        }
 
-    @media (max-height: 600px) {
-      .titulo {
-        font-size: 2em !important;
-        padding: 10px !important;
-        margin-bottom: 5px !important;
-      }
+        @media (max-height: 600px) {
+            .titulo {
+                font-size: 2em !important;
+                padding: 10px !important;
+                margin-bottom: 5px !important;
+            }
 
-      .painel {
-        padding: 20px;
-      }
+            .painel {
+                padding: 20px;
+            }
 
-      .casa {
-        padding: 8px 16px;
-      }
+            .casa {
+                padding: 8px 16px;
+            }
 
-      .emblema {
-        width: 100px;
-        height: 100px;
-        margin: 10px auto;
-      }
+            .emblema {
+                width: 100px;
+                height: 100px;
+                margin: 10px auto;
+            }
 
-      .botao-reiniciar {
-        padding: 8px 30px;
-      }
-    }
+            .botao-reiniciar {
+                padding: 8px 30px;
+            }
+        }
 
-    @media (max-width: 768px) {
-      .titulo {
-        font-size: 2.5em !important;
-      }
+        @media (max-width: 768px) {
+            .titulo {
+                font-size: 2.5em !important;
+            }
 
-      .tabuleiro {
-        gap: 10px;
-      }
+            .tabuleiro {
+                gap: 10px;
+            }
 
-      .casa {
-        padding: 8px 16px;
-        font-size: 0.9em;
-      }
+            .casa {
+                padding: 8px 16px;
+                font-size: 0.9em;
+            }
 
-      .painel h2 {
-        font-size: clamp(1.2em, 3.5vw, 1.8em);
-      }
+            .painel h2 {
+                font-size: clamp(1.2em, 3.5vw, 1.8em);
+            }
 
-      .emblema {
-        width: 150px;
-        height: 150px;
-      }
-    }
-  </style>
+            .emblema {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="titulo">CASH CLASH</div>
-
-    <div class="tabuleiro-wrapper">
-      <div class="tabuleiro">
-        <div class="casa inicio">Início</div>
-        <div class="casa">1</div>
-        <div class="casa">2</div>
-        <div class="casa">3</div>
-        <div class="casa">4</div>
-        <div class="casa">5</div>
-        <div class="casa">6</div>
-        <div class="casa">7</div>
-        <div class="casa">8</div>
-        <div class="casa">9</div>
-        <div class="casa">10</div>
-        <div class="casa fim">Fim</div>
-      </div>
+    <div class="container">
+        <div class="header">
+            <h1 class="titulo">CashClash</h1>
+        </div>
+        <div class="content-wrapper">
+            <div class="painel painel-vitoria">
+                <h2>Parabéns!</h2>
+                <p>Você completou o jogo com {{ vidas }} vidas!</p>
+                <div class="emblema">
+                    <img src="/static/images/emblema.png" alt="Emblema de vitória">
+                </div>
+                <p>Você é um mestre em matemática financeira!</p>
+                <a href="{% url 'telaInicial' %}" class="botao-reiniciar">Jogar Novamente</a>
+            </div>
+        </div>
     </div>
-
-    <div class="painel">
-      <h2>Parabéns, você concluiu sua jornada de aprendizado sobre matemática financeira!</h2>
-      <p>Agora você parte da elite do CashClash e tem o emblema de campeão!</p>
-      <div class="emblema">
-        <img src="{% static 'images/emblema.png' %}" alt="Emblema de Campeão">
-      </div>
-      <a href="{% url 'iniciar_jogo' %}" class="botao-reiniciar">Jogar Novamente</a>
-    </div>
-  </div>
 </body>
 </html> 

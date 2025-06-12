@@ -2,7 +2,8 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Game Over - Cash Clash</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CashClash - Game Over</title>
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   <style>
@@ -255,33 +256,15 @@
 <body>
   <div class="container">
     <div class="header">
-      <div class="titulo">CASH CLASH</div>
-      <div class="vidas-container">
-        <span class="vida">❌</span>
-        <span class="vidas-texto">0 VIDAS</span>
-      </div>
+      <h1 class="titulo">CashClash</h1>
     </div>
-
-    <div class="tabuleiro-wrapper">
-      <div class="tabuleiro">
-        <div class="casa inicio">Início</div>
-        {% for i in "123456789"|make_list %}
-          <div class="casa {% if posicao == i|add:"0" %}atual{% endif %}">{{ i }}</div>
-        {% endfor %}
-        <div class="casa {% if posicao == 10 %}atual{% endif %}">10</div>
-        <div class="casa fim {% if posicao > 10 %}atual{% endif %}">Fim</div>
+    <div class="content-wrapper">
+      <div class="painel painel-derrota">
+        <h2>Game Over!</h2>
+        <p>Não foi dessa vez... Mas não desista!</p>
+        <p>Você chegou até a casa {{ casa_atual }}</p>
+        <a href="{% url 'telaInicial' %}" class="botao-reiniciar">Tentar Novamente</a>
       </div>
-    </div>
-
-    <div class="painel">
-      <h2>Você perdeu todas as suas vidas!</h2>
-      <p class="mensagem">Errar faz parte do aprendizado.</p>
-      <p class="mensagem">Reinicie o jogo e continue aprendendo</p>
-      <div class="vidas">
-        <span class="vida-modal">❌</span>
-        <span>0 VIDAS</span>
-      </div>
-      <a href="{% url 'iniciar_jogo' %}" class="botao-reiniciar">Reiniciar</a>
     </div>
   </div>
 </body>

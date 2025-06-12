@@ -2,7 +2,8 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Resposta Correta - Cash Clash</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CashClash - Resposta Correta</title>
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   <style>
@@ -60,6 +61,12 @@
     .vidas-texto {
       color: #666;
       font-weight: bold;
+    }
+
+    .coracao {
+      color: #FFB6C1;
+      font-size: 1.2em;
+      margin-left: 5px;
     }
 
     .tabuleiro-wrapper {
@@ -267,32 +274,31 @@
 <body>
   <div class="container">
     <div class="header">
-      <div class="titulo">CASH CLASH</div>
+      <h1 class="titulo">CashClash</h1>
       <div class="vidas-container">
-        <span class="vida">♥</span>
-        <span class="vidas-texto">{{ vidas }} VIDAS</span>
+        Vidas: <span class="vidas">{{ vidas }}</span><span class="coracao">♥</span>
       </div>
     </div>
-
-    <div class="tabuleiro-wrapper">
-      <div class="tabuleiro">
-        <div class="casa inicio">Início</div>
-        {% for i in "123456789"|make_list %}
-          <div class="casa {% if posicao == i|add:"0" %}atual{% endif %}">{{ i }}</div>
-        {% endfor %}
-        <div class="casa {% if posicao == 10 %}atual{% endif %}">10</div>
-        <div class="casa fim">Fim</div>
+    <div class="content-wrapper">
+      <div class="tabuleiro-wrapper">
+        <div class="tabuleiro">
+          <div class="casa inicio {% if posicao == 0 %}atual{% endif %}">Início</div>
+          {% for i in "123456789"|make_list %}
+            <div class="casa {% if posicao == i|add:"0" %}atual{% endif %}">{{ i }}</div>
+          {% endfor %}
+          <div class="casa {% if posicao == 10 %}atual{% endif %}">10</div>
+          <div class="casa fim {% if posicao > 10 %}atual{% endif %}">Fim</div>
+        </div>
       </div>
-    </div>
-
-    <div class="painel">
-      <h2>Parabéns, você acertou a resposta!</h2>
-      <div class="explicacao">
-        <h3>Entenda mais sobre:</h3>
-        <p>{{ explicacao }}</p>
+      <div class="painel painel-resposta-correta">
+        <h2>Muito bem!</h2>
+        <p>Você acertou a resposta!</p>
+        <div class="explicacao">
+          <h3>Por que esta é a resposta correta?</h3>
+          <p>{{ explicacao }}</p>
+        </div>
+        <a href="{% url 'tela_pergunta' %}" class="botao-avancar">Avançar</a>
       </div>
-      <p class="instrucao">Avance para a próxima casa</p>
-      <a href="{% url 'tela_pergunta' %}" class="botao-avancar">Avançar</a>
     </div>
   </div>
 </body>
