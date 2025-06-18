@@ -142,6 +142,14 @@
       color: white;
     }
 
+    .painel .mensagem-vidas {
+    color: #C0FFC7; 
+    font-size: clamp(0.8em, 2.2vw, 1em); /* Tamanho de fonte diferente */
+    margin-top: 10px; /* Adiciona um espaço acima*/
+    margin-bottom: 20px; /* Adiciona espaço antes do botão*/
+    font-weight: bold; /* Opcional: para que o texto fique em negrito */
+  }
+
     .botao-play {
       display: inline-block;
       padding: 12px 40px;
@@ -248,8 +256,9 @@
 
       <div class="painel">
         <h2>Bem-vindo ao CashClash!</h2>
-        <p>Aprenda matemática financeira de forma divertida!</p>
+        <p>Aprenda matemática financeira de forma divertida!</p> 
         <a href="{% url 'iniciar_jogo' %}" class="botao-play">JOGAR</a>
+        <p class="mensagem-vidas">Você terá 3 vidas a cada partida</p>
       </div>
     </div>
     <img src="{% static 'images/persona1.png' %}" alt="Persona" class="persona-image">
