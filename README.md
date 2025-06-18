@@ -18,7 +18,47 @@ O jogador percorre um tabuleiro com 10 casas, respondendo a desafios matemático
 
 - **Frontend:** HTML, CSS, JavaScript  
 - **Backend:** Node.js ou Django  
-- **Banco de Dados:** PostgreSQL ou Firebase  
+- **Banco de Dados:** PostgreSQL ou Firebase
+
+## 💡 Como rodar o projeto
+1.  **Clone este repositório:**
+    ```bash
+    git clone [https://github.com/SEU-USUARIO/seu-repositorio.git](https://github.com/SEU-USUARIO/seu-repositorio.git)
+    ```
+
+2.  **Acesse a pasta do projeto:**
+    ```bash
+    cd nome-do-projeto
+    ```
+    (Substitua `nome-do-projeto` pelo nome real da pasta raiz do seu projeto Django, por exemplo, `CashClash`)
+
+3.  **Crie e ative um ambiente virtual (recomendado):**
+    ```bash
+    python -m venv venv
+    # Para Windows:
+    .\venv\Scripts\activate
+    # Para macOS/Linux:
+    source venv/bin/activate
+    ```
+
+4.  **Instale as dependências:**
+    (Assumindo que você tem um `requirements.txt` com `Django` e outras bibliotecas necessárias. Se não tiver, use `pip install Django` primeiro e depois `pip freeze > requirements.txt`)
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+5.  **Aplique as migrações do banco de dados:**
+    ```bash
+    python manage.py migrate
+    ```
+
+6.  **Inicie o servidor de desenvolvimento:**
+    ```bash
+    python manage.py runserver
+    ```
+
+7.  **Acesse o projeto no navegador:**
+    Abra seu navegador e vá para: [http://127.0.0.1:8000/](http://127.00.0.1:8000/)
 
 ## 🌐 Visão de Arquitetura
 
