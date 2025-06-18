@@ -1,0 +1,1 @@
+"""este arquivo é um indicador para o interpretador Python de que o diretório cashclash deve ser tratado como um pacote python"""

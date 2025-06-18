@@ -10,7 +10,8 @@
             "alternativa_d": "Um cartão de crédito.",
             "alternativa_correta": "B",
             "explicacao": "Um orçamento é um plano financeiro que ajuda a controlar quanto dinheiro você recebe e quanto gasta, permitindo organizar melhor suas finanças.",
-            "dica": "Pense em como você pode organizar seu dinheiro de forma planejada."
+            "dica": "Pense em como você pode organizar seu dinheiro de forma planejada.",
+            "stage": 1
         }
     },
     {
@@ -24,7 +25,8 @@
             "alternativa_d": "Os simples atualizam o capital mensalmente.",
             "alternativa_correta": "B",
             "explicacao": "Juros compostos capitalizam os juros, ou seja, o valor sobre o qual se calcula aumenta a cada período.",
-            "dica": "Pense na ideia de juros sobre juros."
+            "dica": "Pense na ideia de juros sobre juros.",
+            "stage": 2
         }
     },
     {
@@ -38,7 +40,8 @@
             "alternativa_d": "Doar todo o dinheiro.",
             "alternativa_correta": "C",
             "explicacao": "Poupar significa guardar uma parte do dinheiro que você recebe, em vez de gastar tudo. Isso ajuda a ter dinheiro para emergências ou para realizar sonhos no futuro.",
-            "dica": "Pense no que você pode fazer com o dinheiro no futuro se não gastar tudo agora."
+            "dica": "Pense no que você pode fazer com o dinheiro no futuro se não gastar tudo agora.",
+            "stage": 3
         }
     },
     {
@@ -52,77 +55,83 @@
             "alternativa_d": " A taxa de crescimento mensal.",
             "alternativa_correta": "C",
             "explicacao": "Capital é o valor inicial de uma operação financeira.",
-            "dica": "Pense no ponto de partida, o “começo da história”."
+            "dica": "Pense no ponto de partida, o “começo da história.",
+            "stage": 4
         }
     },
     {
         "model": "game.question",
         "pk": 5,
         "fields": {
-            "texto": " Qual é o significado de taxa de juros?",
+            "texto": "Qual é o significado de taxa de juros?",
             "alternativa_a": "O tempo necessário para dobrar o investimento.",
             "alternativa_b": "O percentual aplicado sobre o capital ou montante.",
             "alternativa_c": "O valor total final de uma aplicação.",
             "alternativa_d": "O número de meses de aplicação.",
             "alternativa_correta": "B",
             "explicacao": "A taxa de juros representa quanto será aplicado (em %) sobre um valor para calcular o acréscimo.",
-            "dica": "Pense como um acréscimo sobre um valor."
+            "dica": "Pense como um acréscimo sobre um valor.",
+            "stage": 5
         }
     },
     {
         "model": "game.question",
         "pk": 6,
         "fields": {
-            "texto": "O que significa poupar dinheiro?",
-            "alternativa_a": "Gastar todo o dinheiro que tem",
-            "alternativa_b": "Pedir dinheiro emprestado",
-            "alternativa_c": "Guardar uma parte do dinheiro para usar depois",
-            "alternativa_d": "Doar todo o dinheiro",
+            "texto": "O que é inflação?",
+            "alternativa_a": "Quando os preços dos produtos diminuem",
+            "alternativa_b": "Quando o dinheiro vale mais",
+            "alternativa_c": "Quando os preços dos produtos aumentam",
+            "alternativa_d": "Quando o salário aumenta",
             "alternativa_correta": "C",
-            "explicacao": "Poupar significa guardar uma parte do dinheiro que você recebe, em vez de gastar tudo. Isso ajuda a ter dinheiro para emergências ou para realizar sonhos no futuro.",
-            "dica": "Pense no que você pode fazer com o dinheiro no futuro se não gastar tudo agora."
+            "explicacao": "Inflação é o aumento geral dos preços dos produtos e serviços, fazendo com que o dinheiro perca seu poder de compra ao longo do tempo.",
+            "dica": "Imagine que o pão que você compra hoje custará mais ano que vem",
+            "stage": 6
         }
     },
     {
         "model": "game.question",
         "pk": 7,
         "fields": {
-            "texto": "O que é montante em uma aplicação?",
-            "alternativa_a": "J = P × (1 + i)ⁿ",
-            "alternativa_b": "J = C × i × t",
-            "alternativa_c": "J = M - C",
-            "alternativa_d": "J = C × i / t",
-            "alternativa_correta": "B",
-            "explicacao": "Juros simples são calculados com a fórmula J = C × i × t, onde C = capital, i = taxa e t = tempo.",
-            "dica": "Pense que você precisa realizar uma multiplicação."
+            "texto": "O que é um investimento?",
+            "alternativa_a": "Gastar dinheiro em jogos",
+            "alternativa_b": "Guardar dinheiro no cofrinho",
+            "alternativa_c": "Aplicar dinheiro esperando receber mais no futuro",
+            "alternativa_d": "Emprestar dinheiro para amigos",
+            "alternativa_correta": "C",
+            "explicacao": "Investimento é quando aplicamos dinheiro em algo (como poupança, ações, títulos) com a expectativa de receber um retorno maior no futuro, fazendo nosso dinheiro crescer.",
+            "dica": "Pense em fazer o seu dinheiro 'trabalhar' para você.",
+            "stage": 7
         }
     },
     {
         "model": "game.question",
         "pk": 8,
         "fields": {
-            "texto": "O que é montante em uma aplicação?",
-            "alternativa_a": "Gastar todo o dinheiro que tem",
-            "alternativa_b": "Pedir dinheiro emprestado",
-            "alternativa_c": "Guardar uma parte do dinheiro para usar depois",
-            "alternativa_d": "Doar todo o dinheiro",
+            "texto": "O que significa ser um consumidor consciente?",
+            "alternativa_a": "Comprar tudo que está em promoção",
+            "alternativa_b": "Gastar todo o dinheiro que tem",
+            "alternativa_c": "Pesquisar preços e comprar apenas o necessário",
+            "alternativa_d": "Comprar apenas produtos caros",
             "alternativa_correta": "C",
-            "explicacao": "Poupar significa guardar uma parte do dinheiro que você recebe, em vez de gastar tudo. Isso ajuda a ter dinheiro para emergências ou para realizar sonhos no futuro.",
-            "dica": "Pense no que você pode fazer com o dinheiro no futuro se não gastar tudo agora."
+            "explicacao": "Um consumidor consciente pesquisa preços, avalia a real necessidade da compra, compara produtos e marcas, e faz escolhas que respeitam seu orçamento e o meio ambiente",
+            "dica": "Não é só sobre comprar, é sobre comprar bem e o que realmente precisa.",
+            "stage": 8
         }
     },
     {
         "model": "game.question",
         "pk": 9,
         "fields": {
-            "texto": "O que significa poupar dinheiro?",
+            "texto": "O que é montante em uma aplicação?",
             "alternativa_a": "O valor pago em juros.",
             "alternativa_b": "O valor final após aplicação de juros ao capital.",
             "alternativa_c": "O valor inicial antes dos juros.",
             "alternativa_d": "A taxa de correção monetária.",
             "alternativa_correta": "B",
             "explicacao": "Montante é a soma do capital + juros, ou seja, o valor total ao final da operação.",
-            "dica": "Pense em tudo o que você tem no fim."
+            "dica": "Pense em tudo o que você tem no fim.",
+            "stage": 9
         }
     },
    
@@ -137,7 +146,8 @@
             "alternativa_d": "Para ter segurança financeira e realizar objetivos",
             "alternativa_correta": "D",
             "explicacao": "Economizar é importante para ter segurança financeira em emergências e poder realizar seus objetivos futuros, como comprar algo especial ou investir em educação.",
-            "dica": "Pense em algo que você gostaria muito de ter ou fazer no futuro."
+            "dica": "Pense em algo que você gostaria muito de ter ou fazer no futuro.",
+            "stage": 10
         }
     }
 ] 

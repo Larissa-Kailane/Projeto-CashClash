@@ -277,10 +277,10 @@
       </div>
       <div class="painel painel-vida-perdida">
         <h2>Ops!</h2>
-        <p>A resposta correta era: {{ resposta_correta }}</p>
+        <p>Resposta incorreta!</p>
         <div class="explicacao">
           <h3>Entenda o porquê:</h3>
-          <p>{{ explicacao }}</p>
+          <p>{{ dica_da_pergunta }}</p>
         </div>
         <a href="{% url 'tela_pergunta' %}" class="botao-tentar">Tentar Novamente</a>
       </div>
