@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CashClash - Pergunta</title>
+  <title>CashClash - Resposta Correta</title>
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   <style>
-     * {
+    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -43,16 +43,10 @@
       flex-direction: column;
       align-items: center;
       gap: 10px;
-      flex-shrink: 0; /* Impede que o header encolha */
-      margin-bottom: 20px; /* Espaço abaixo do header */
     }
 
-     .titulo {
-        font-size: clamp(2em, 5vw, 3em); /* Título responsivo */
-    } 
-
     .vidas-container {
-      font-size: clamp(1.2em, 2.5vw, 1.5em); /* Responsivo */
+      font-size: 1.5em;
       background-color: rgba(255, 192, 203, 0.2);
       padding: 8px 15px;
       border-radius: 20px;
@@ -60,7 +54,7 @@
     }
 
     .vida {
-      color: #FFB6C1;
+      color: #BA0D78;
       margin-right: 8px;
     }
 
@@ -70,7 +64,7 @@
     }
 
     .coracao {
-      color: #FFB6C1;
+      color: #BA0D78;
       font-size: 1.2em;
       margin-left: 5px;
     }
@@ -78,9 +72,7 @@
     .tabuleiro-wrapper {
       width: 100%;
       max-width: 100%;
-     /* margin: 20px 0;*/
-      flex-shrink: 0; /* Impede que o tabuleiro encolha */
-      margin-bottom: 30px; /* Espaço abaixo do tabuleiro */
+      margin: 20px 0;
     }
 
     .tabuleiro {
@@ -147,7 +139,7 @@
     }
 
     .painel {
-      background-color: #FF686B;
+      background-color: #40E0D0;
       padding: 30px;
       border-radius: 20px;
       text-align: center;
@@ -168,51 +160,60 @@
       left: 4px;
       right: -4px;
       bottom: -4px;
-      background-color: rgba(255, 104, 107, 0.5);
+      background-color: rgba(64, 224, 208, 0.5);
       border-radius: 20px;
       z-index: -1;
     }
 
     .painel h2 {
-      font-size: clamp(1em, 2vw, 1.5em);
+      font-size: clamp(1.5em, 4vw, 2em);
       color: white;
       margin-bottom: 15px;
     }
 
-    .painel p {
-      font-size: clamp(1em, 3vw, 1.2em);
-      margin-bottom: 15px;
-      color: white;
+    .explicacao {
+      background-color: #E6E6FA;
+      padding: 20px;
+      border-radius: 15px;
+      margin: 10px 0;
+      text-align: left;
+      max-height: 30vh;
+      overflow-y: auto;
     }
 
-    .botao-play {
+    .explicacao h3 {
+      color: #333;
+      margin-bottom: 10px;
+      font-size: clamp(1.1em, 3vw, 1.3em);
+    }
+
+    .explicacao p {
+      color: #444;
+      font-size: clamp(0.9em, 2.5vw, 1.1em);
+      line-height: 1.5;
+    }
+
+    .botao-avancar {
       display: inline-block;
-      padding: 12px 20px;
+      padding: 12px 40px;
       background-color: #C0FFC7;
       color: black;
       border: none;
       border-radius: 10px;
-      font-size: clamp(0.9em, 2.5vw, 1.1em);
+      font-size: clamp(1em, 2.5vw, 1.2em);
       cursor: pointer;
       font-weight: bold;
       text-decoration: none;
-      width: 100%;
-      max-width: 400px;
-      text-align: left;
       transition: background-color 0.3s ease;
     }
 
-    .botao-play:hover {
+    .botao-avancar:hover {
       background-color: #9EFFAA;
     }
 
-    .alternativa {
-      margin: 8px 0;
-    }
-
-    .alternativa-letra {
-      font-weight: bold;
-      margin-right: 10px;
+    .instrucao {
+      color: white;
+      font-size: clamp(1em, 2.5vw, 1.2em);
     }
 
     @media (max-height: 600px) {
@@ -235,12 +236,14 @@
         padding: 8px 16px;
       }
 
-      .botao-play {
-        padding: 8px 16px;
+      .explicacao {
+        padding: 15px;
+        margin: 5px 0;
+        max-height: 25vh;
       }
 
-      .alternativa {
-        margin: 5px 0;
+      .botao-avancar {
+        padding: 8px 30px;
       }
     }
 
@@ -260,6 +263,10 @@
 
       .painel h2 {
         font-size: clamp(1.2em, 3.5vw, 1.8em);
+      }
+
+      .explicacao {
+        padding: 15px;
       }
     }
   </style>
@@ -283,44 +290,18 @@
           <div class="casa fim {% if posicao > 10 %}atual{% endif %}">Fim</div>
         </div>
       </div>
-      <div class="painel">
-        <h4>{{ pergunta.texto }}</h4>
-        <form action="{% url 'tela_pergunta' %}" method="post">
-          {% csrf_token %}
-          <div class="alternativa">
-            <input type="radio" name="resposta" value="{{ pergunta.alternativa_a }}" id="alt_a" required>
-            <label for="alt_a">
-              <span class="alternativa-letra">A)</span>
-              {{ pergunta.alternativa_a }}
-            </label>
-          </div>
-          <div class="alternativa">
-            <input type="radio" name="resposta" value="{{ pergunta.alternativa_b }}" id="alt_b" required>
-            <label for="alt_b">
-              <span class="alternativa-letra">B)</span>
-              {{ pergunta.alternativa_b }}
-            </label>
-          </div>
-          <div class="alternativa">
-            <input type="radio" name="resposta" value="{{ pergunta.alternativa_c }}" id="alt_c" required>
-            <label for="alt_c">
-              <span class="alternativa-letra">C)</span>
-              {{ pergunta.alternativa_c }}
-            </label>
-          </div>
-          <div class="alternativa">
-            <input type="radio" name="resposta" value="{{ pergunta.alternativa_d }}" id="alt_d" required>
-            <label for="alt_d">
-              <span class="alternativa-letra">D)</span>
-              {{ pergunta.alternativa_d }}
-            </label>
-          </div>
-          <button type="submit" class="botao-avancar">Responder</button>
-        </form>
+      <div class="painel painel-resposta-correta">
+        <h2>Muito bem!</h2>
+        <p>Você acertou a resposta!</p>
+        <div class="explicacao">
+          <h3>Por que esta é a resposta correta?</h3>
+          <p>{{ explicacao }}</p>
+        </div>
+        <a href="{% url 'tela_pergunta' %}" class="botao-avancar">Avançar</a>
       </div>
     </div>
   </div>
   <img src="{% static 'images/persona1.png' %}" alt="Persona" class="persona-image" id="persona-mascote">
   <img src="{% static 'images/Persona2.png' %}" alt="Persona 2" class="persona-image-2">
 </body>
-</html>
+</html> 

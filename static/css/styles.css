@@ -71,7 +71,7 @@ body {
 }
 
 .vidas {
-  color: #FFB6C1;
+  color: #BA0D78;
   font-weight: bold;
 }
 
@@ -377,7 +377,7 @@ input[type="radio"]:checked + label {
     text-align: center;
     font-size: 24px;
     margin: 20px 0;
-    color: #FF69B4;
+    color: #BA0D78;
 }
 
 .game-title {
