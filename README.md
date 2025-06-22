@@ -16,9 +16,9 @@ O jogador percorre um tabuleiro com 10 casas, respondendo a desafios matemático
 
 ## 🔧 Tecnologias utilizadas
 
-- **Frontend:** HTML, CSS, JavaScript  
-- **Backend:** Node.js ou Django  
-- **Banco de Dados:** PostgreSQL ou Firebase
+- **Frontend:** HTML, CSS 
+- **Backend:** Python e Django  
+- **Banco de Dados:** json e sqlite3
 
 ## 💡 Como rodar o projeto
 1.  **Clone este repositório:**
@@ -46,6 +46,10 @@ O jogador percorre um tabuleiro com 10 casas, respondendo a desafios matemático
     ```bash
     pip install -r requirements.txt
     ```
+5.  **Inicialize o banco de dados:**
+    ```bash
+    python manage.py loaddata initial_questions.json
+    ```
 
 5.  **Aplique as migrações do banco de dados:**
     ```bash
@@ -62,8 +66,8 @@ O jogador percorre um tabuleiro com 10 casas, respondendo a desafios matemático
 
 ## 🌐 Visão de Arquitetura
 
-- **Visão de Desenvolvimento:** Código organizado em pacotes como `jogo`, `usuario`, `perguntas`, `feedback`.  
-- **Visão Física:** Aplicação web acessada por navegador, com servidor responsável pela lógica e banco de dados para armazenar perguntas e pontuações.
+- **Visão de Desenvolvimento:** Código organizado seguindo o padrão arquitetural MVT.  
+- **Visão Física:** Aplicação web acessada por navegador, com servidor responsável pela lógica e banco de dados para armazenar perguntas.
 
 ## 👩‍💻 Equipe
 
